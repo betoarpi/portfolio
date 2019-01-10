@@ -1,0 +1,1 @@
+body{background:#503c91;margin:0;font-family:sans-serif}body>*{box-sizing:border-box}.main-container{display:flex;height:100vh;justify-content:center;width:100vw}.container-card{background:#ededed;display:flex;max-width:calc(100% - 40px);flex:0 1 1200px;height:300px;align-self:center}
