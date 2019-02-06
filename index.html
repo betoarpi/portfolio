@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Rob Arroyo | Frontend Developer</title>
+  <title>Rob Arroyo | UX Designer / Frontend Developer</title>
   <link rel="stylesheet" href="css/robby-theme.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
@@ -18,6 +18,7 @@
           <li class="portfolio"><a href="#">portfolio</a></li>
           <li class="contact"><a href="#">contact</a></li>
         </ul>
+        <a href="#" class="mobile-menu-trigger" id="mobile-menu-trigger"><i class="fas fa-bars"></i></a>
       </nav>
       <!-- //main navigation -->
 
@@ -27,8 +28,8 @@
       <!-- //selfie -->
 
       <article class="content">
-        <h1><span>I'm </span>Rob Arroyo</h1>
-        <h2>Frontend Developer & Web Designer</h2>
+        <h1 class="name"><span>Hello, I'm </span>Rob Arroyo</h1>
+        <h2 class="title"><i class="fas fa-terminal"></i> / UX_Designer / Frontend_Developer (master): $</h2>
         <p>I got a BA in Design for Graphic Communication at the University of Guadalajara, Mexico. I specialized in Web Design & Development when I discovered that I love crafting good user experiences.</p>
         <p>Check out my portfolio. If you like something and would like to work with me or are interested in getting in touch, don't hesitate to visit the contact tab to drop me a message.</p>
       </article>
@@ -37,7 +38,28 @@
       <a href="#" class="next"><i class="fas fa-angle-right"></i></a>
     </section>
     <!-- //container card -->
+    <div class="shape-container"><img src="src/img/organic-shape.svg" alt=""></div>
   </div>
   <!-- //main container -->
+  <div class="overlay">
+    <a href="#" id="close"><i class="fas fa-times-circle"></i></a>
+    <div class="menu-container" id="menu-mobile-container">
+      <nav class="menu-mobile">
+        <ul>
+          <li class="who-am-i">
+              <span class="name">Rob Arroyo</span>
+              <span class="title"><i class="fas fa-terminal"></i> / UX_Designer / Frontend_Developer (master): $</span>
+          </li>
+          <li class="me"><a href="#"><i class="fas fa-user-astronaut"></i> me</a></li>
+          <li class="experience"><a href="#"><i class="fas fa-space-shuttle"></i> experience</a></li>
+          <li class="portfolio"><a href="#"><i class="fas fa-camera-retro"></i> portfolio</a></li>
+          <li class="contact"><a href="#"><i class="fas fa-satellite-dish"></i> contact</a></li>
+        </ul>
+      </nav>
+      <div class="shape-container"><img src="src/img/organic-shape.svg" alt=""></div>
+    </div>
+  </div>
+  <!-- //overlay -->
+  <script src="src/js/functionality.js"></script>
 </body>
 </html>
