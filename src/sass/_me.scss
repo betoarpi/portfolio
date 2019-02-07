@@ -19,7 +19,7 @@
   position: relative;
   &:before {
     content: " ";
-    border: 1px solid $primary-color;
+    border: 2px solid $second-gradient-color;
     border-radius: 25% 5%;
     opacity: 1;
     position: absolute;
@@ -31,7 +31,7 @@
   }
   &:after {
     content: " ";
-    border: 1px solid $links;
+    border: 2px solid $links;
     border-radius: 25% 5%;
     opacity: 1;
     position: absolute;

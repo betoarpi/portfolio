@@ -80,3 +80,14 @@ function menuContainerTemplate(){
     $menuContainer.classList.remove('active');
   })
 })();
+
+//Experience
+(async function loadExperience(){
+  async function getExperience(url){
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
+  const experienceList = await getExperience('file:///D:/Proyectos/Robby%20Site/js/experience.js');
+  console.log(experienceList);
+})();
