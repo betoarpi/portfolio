@@ -88,6 +88,6 @@ function menuContainerTemplate(){
     const data = await response.json();
     return data;
   }
-  const experienceList = await getExperience('file:///D:/Proyectos/Robby%20Site/js/experience.js');
+  const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json');
   console.log(experienceList);
 })();
