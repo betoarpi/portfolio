@@ -1,18 +1,82 @@
-// DOM Elements
-const $menuTrigger = document.getElementById('mobile-menu-trigger');
-const $overlay = document.querySelector('.overlay');
-const $closeX = document.getElementById('close');
-const $menuContainer = document.getElementById('menu-mobile-container');
+//Templates
+function overlayTemplate(){
+  return(
+    `<div id="overlay" class="overlay">
+      <div class="menu-container" id="menu-mobile-container">
+        <div class="shape-container"><img src="src/img/organic-shape.svg" alt=""></div>
+      </div>
+      <a href="#" id="close"><i class="fas fa-times-circle"></i></a>
+    </div>
+    <!-- //overlay -->`
+  )
+}
 
-//Modal Functionality
-$menuTrigger.addEventListener("click", function(event) {
-  event.preventDefault();
-  $overlay.classList.add('active');
-  $menuContainer.classList.add('active');
-})
+function menuContainerTemplate(){
+  return(
+    `<nav class="menu-mobile main-navigation">
+        <ul>
+          <li class="who-am-i">
+              <span class="name">Rob Arroyo</span>
+              <span class="title"><i class="fas fa-terminal"></i> / UX_Designer / Frontend_Developer (master): $</span>
+          </li>
+          <li class="me"><a href="#"><i class="fas fa-robot"></i> me</a></li>
+          <li class="experience"><a href="#"><i class="fas fa-rocket"></i> experience</a></li>
+          <li class="portfolio"><a href="#"><i class="fas fa-images"></i> portfolio</a></li>
+          <li class="contact"><a href="#"><i class="fas fa-satellite-dish"></i> contact</a></li>
+        </ul>
+        <a href="#" class="mobile-menu-trigger" id="mobile-menu-trigger"><i class="fas fa-bars"></i></a>
+      </nav>
+      <!-- //main navigation -->`
+  )
+}
 
-$closeX.addEventListener("click", function(event) {
-  event.preventDefault();
-  $overlay.classList.remove('active');
-  $menuContainer.classList.remove('active');
-})
+//Print the overlay an menu templates and then bring it to the DOM
+(function printOverlay() {
+  const $body = document.getElementById('body');
+  const HTMLString = overlayTemplate();
+  const html = document.implementation.createHTMLDocument();
+  html.body.innerHTML = HTMLString;
+  $body.insertBefore(html.body.children[0], $body.lastChild);
+})();
+
+(function printDesktopMenu() {
+  const HTMLString = menuContainerTemplate();
+  const html = document.implementation.createHTMLDocument();
+  html.body.innerHTML = HTMLString;
+  
+  const $containerCard = document.getElementById('container-card');
+  $containerCard.insertBefore(html.body.children[0], $containerCard.childNodes[0]);
+})();
+
+(function printMobileMenu() {
+  const HTMLString = menuContainerTemplate();
+  const html = document.implementation.createHTMLDocument();
+  html.body.innerHTML = HTMLString;
+  
+  const $menuMobileContainer = document.getElementById('menu-mobile-container');
+  $menuMobileContainer.insertBefore(html.body.children[0], $menuMobileContainer.childNodes[0]);
+})();
+
+//Mobile Menu Functionality
+(function mobileMenu() {
+  //Get DOM Elements
+  const $menuContainer = document.getElementById('menu-mobile-container');
+  const $menuTrigger = document.querySelector('#mobile-menu-trigger');
+  const $overlay = document.getElementById('overlay');
+
+  $menuTrigger.addEventListener("click", function(event) {
+    event.preventDefault();
+    //Set the new css classes
+    $overlay.classList.add('active');
+    $menuContainer.classList.add('active');
+  });
+  
+  //Get DOM Element
+  const $closeX = document.getElementById('close');
+  $closeX.addEventListener("click", function(event) {
+    event.preventDefault();
+    //Set the new css classes
+    $overlay.classList.remove('active');
+    $menuContainer.classList.remove('active');
+  })
+})();

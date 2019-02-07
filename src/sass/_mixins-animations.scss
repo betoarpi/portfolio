@@ -1,0 +1,31 @@
+/* Mixins */
+@mixin border-gradient($dir, $from, $to, $width) {
+  border-left: $width solid $from;
+  border-right: $width solid $to;
+  background-image:
+    // Needed for both the top and bottom borders
+    -webkit-linear-gradient($dir, $from, $to),
+    -webkit-linear-gradient($dir, $from, $to);
+  background-size: 100% $width;
+  background-position: 0 100%, 0 0;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+}
+
+@mixin background-gradient($dir, $from, $to, $final) {
+  background-image:
+    -webkit-linear-gradient($dir, $from, $to, $final),
+}
+
+@mixin text-gradient($dir, $from, $to) {
+  background: -webkit-linear-gradient($dir, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Terminal look alike blink effect for title */
+@keyframes blink {
+	0% {opacity: 0}
+	49%{opacity: 0}
+	50% {opacity: 1}
+}

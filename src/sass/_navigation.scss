@@ -1,0 +1,214 @@
+/* Desktop Navigation */
+.main-navigation {
+  display: flex;
+  flex: 1 100%;
+  padding: 0 30px;
+  ul {
+    border-bottom: rgba(0,0,0,0.03) solid 1px;
+    display: flex;
+    flex: 1 0 100%;
+    font-family: $title-fonts;
+    justify-content: center;
+    height: auto;
+    margin: 0 0 30px;
+    padding: 22px 0 15px;
+    li {
+      display: inline-flex;
+      list-style: none;
+      margin: 0 20px;
+      a {
+        border-bottom: 2px solid transparent;
+        color: $primary-color;
+        font-weight: 800;
+        position: relative;
+        text-transform: uppercase;
+        &:hover {
+          //border-color: $links;
+          color: darken($links, 30%);
+        }
+        i.fas {
+          display: none;
+        }
+      }
+      &.who-am-i {
+        display: none;
+      }
+      /* &.me {
+        a {
+          &:hover {
+            &:before {
+              content: "me";
+              //border-bottom: 1px solid $primary-color;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: $primary-color;
+              opacity: 0.8s;
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              z-index: 0;
+            }
+          }
+        }
+      }
+      &.experience {
+        a {
+          &:hover {
+            &:before {
+              content: "experience";
+              //border-bottom: 1px solid $primary-color;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: $primary-color;
+              opacity: 0.8s;
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              z-index: 0;
+            }
+          }
+        }
+      }
+      &.portfolio {
+        a {
+          &:hover {
+            &:before {
+              content: "portfolio";
+              //border-bottom: 1px solid $primary-color;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: $primary-color;
+              opacity: 0.8s;
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              z-index: 0;
+            }
+          }
+        }
+      }
+      &.contact {
+        a {
+          &:hover {
+            &:before {
+              content: "contact";
+              //border-bottom: 1px solid $primary-color;
+              color: transparent;
+              -webkit-text-stroke-width: 1px;
+              -webkit-text-stroke-color: $primary-color;
+              opacity: 0.8s;
+              position: absolute;
+              top: -1px;
+              left: -1px;
+              z-index: 0;
+            }
+          }
+        }
+      } */
+    }
+  }
+  .mobile-menu-trigger {
+    color: $gradient-color;
+    display: none;
+    font-size: 2em;
+    margin: 0.6em 0;
+    &:hover {
+      color: $second-gradient-color;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    ul {
+      li {
+        margin: 0 16px;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    ul {
+      display: none;
+    }
+    .mobile-menu-trigger {
+      display: flex;
+    }
+  }
+}
+
+/* Mobile Navigation */
+.menu-container {
+  background: $complementary-color;
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-start;
+  width: calc(100% - 110px);
+  transform: translateX(-100%);
+  position: relative;
+  overflow: hidden;
+  z-index: -100;
+  &.active {
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.3s;
+    z-index: initial;
+  }
+  .shape-container {
+    mix-blend-mode: initial;
+    bottom: 110px;
+    right: -200px;
+    width: 870px;
+    opacity: 0.04;
+  }
+
+  .menu-mobile {
+    padding-left: 0;
+    z-index: 1;
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 1.5em;
+      list-style: none;
+      li {
+        border-bottom: 1px solid darken($complementary-color, 10%);
+        padding: 1em 0;
+        a {
+          color: $primary-color;
+          font-weight: 800;
+          font-size: 1em;
+          text-transform: uppercase;
+          &:hover {
+            text-decoration: none;
+            color: darken($links, 30%);
+          }
+          i.fas {
+            display: inline-block;
+            color: lighten($primary-color, 30%);
+            width: 30px;
+          }
+        }
+        &.who-am-i {
+          display: flex !important;
+          flex-direction: column;
+          padding-bottom: 2em;
+          .name {
+            font-size: 2.5em;
+            &:before {
+              top: -1px;
+              left: -1px;
+            }
+            &:after {
+              top: -1px;
+              left: -1px;
+            }
+          }
+          .title {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+    .mobile-menu-trigger {
+      display: none;
+    }
+  }
+}

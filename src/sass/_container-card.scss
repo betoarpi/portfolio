@@ -1,0 +1,71 @@
+.container-card {
+  background: $complementary-color;
+  box-shadow: rgba(0,0,0,0.2) 0.8em 0.8em 0px;
+  //@include border-gradient(-35deg, darken($second-gradient-color, 10%), darken($primary-color, 10%), 4px)
+  border-radius: 10px 70px;
+  display: flex;
+  margin: 30px;
+  max-width: calc(100% - 40px);
+  flex: 0 1 1000px;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-self: center;
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 1199px) {
+    flex: 0 1 calc(100% - 300px);
+  }
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 767px) {
+    flex: 0 1 calc(100% - 120px);
+  }
+  @media screen and (max-width: 479px) {
+    flex: 0 1 calc(100% - 60px);
+  }
+}
+
+.content {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  font-size: 18px;
+  padding: 0 30px 40px;
+  .name {
+    margin-top: 40px;
+  }
+  p {
+    line-height: 1.5;
+  }
+  @media screen and (max-width: 1023px) {
+    padding: 0 60px 0 30px;
+  }
+  @media screen and (max-width: 767px) {
+    padding-bottom: 90px;
+    h1 {
+      font-size: 3em;
+    }
+    h2 {
+      font-size: 1em;
+    }
+  }
+}
+
+.next {
+  color: $links;
+  display: flex;
+  font-size: 22em;
+  margin: 0 -80px 0 20px;
+  text-shadow: rgba(0,0,0,0.1) 20px 20px 0px;
+  @media screen and (max-width: 1023px) {
+    //justify-content: flex-end;
+    align-self: flex-end;
+    font-size: 15em;
+    margin: -100px -60px -100px 0;
+  }
+  @media screen and (max-width: 479px) {
+    font-size: 10em;
+    margin: -100px -20px -70px 0;
+  }
+}
