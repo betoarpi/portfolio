@@ -1,0 +1,61 @@
+{
+  "data": {
+    "skills": [
+      {
+        "name": "UI Design",
+        "icon": "fas fa-pen-nib",
+        "level": "100%"
+      },
+      {
+        "name": "UI Development",
+        "icon": "fab fa-css3-alt",
+        "level": "100%"
+      },
+      {
+        "name": "HTML5",
+        "icon": "fab fa-html5",
+        "level": "100%"
+      },
+      {
+        "name": "CSS3",
+        "icon": "fab fa-css3-alt",
+        "level": "100%"
+      },
+      {
+        "name": "Javascript",
+        "icon": "fab fa-js-square",
+        "level": "100%"
+      },
+      {
+        "name": "PHP",
+        "icon": "fab fa-php",
+        "level": "100%"
+      },
+      {
+        "name": "Wordpress",
+        "icon": "fab fa-wordpress",
+        "level": "100%"
+      },
+      {
+        "name": "Project Management",
+        "icon": "fas fa-tasks",
+        "level": "100%"
+      },
+      {
+        "name": "Team Management",
+        "icon": "fas fa-users",
+        "level": "100%"
+      },
+      {
+        "name": "Gaming",
+        "icon": "fas fa-gamepad",
+        "level": "100%"
+      },
+      {
+        "name": "Beer Pouring",
+        "icon": "fas fa-beer",
+        "level": "100%"
+      }
+    ]
+  }
+}

@@ -3,6 +3,9 @@
   display: flex;
   flex: 1 100%;
   padding: 0 30px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 2em;
+  }
   ul {
     border-bottom: rgba(0,0,0,0.03) solid 1px;
     display: flex;
