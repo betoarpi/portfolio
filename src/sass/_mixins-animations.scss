@@ -17,6 +17,11 @@
     -webkit-linear-gradient($dir, $from, $to, $final),
 }
 
+@mixin background-gradient-items($dir, $from, $to) {
+  background-image:
+    -webkit-linear-gradient($dir, $from, $to),
+}
+
 @mixin text-gradient($dir, $from, $to) {
   background: -webkit-linear-gradient($dir, $from, $to);
   -webkit-background-clip: text;
