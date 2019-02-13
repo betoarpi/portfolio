@@ -2,14 +2,14 @@
   "results":[ {
     "id":"1",
     "name":"Logo Design Guru & Guru Corporation",
-    "logo":"/src/img/logo-design-guru.png",
+    "logo":"img/logo-design-guru.png",
     "position":"Web Designer",
     "date-range":"2009 - 2011",
     "location":"Ajijic, México"
   },
   {
     "id":"2",
-    "logo":"/src/img/oc2-interactive.png",
+    "logo":"img/oc2-interactive.png",
     "position":"Design Manager",
     "name":"OC2 Interactive",
     "date-range":"2011 - 2012",
@@ -17,7 +17,7 @@
   },
   {
     "id":"3",
-    "logo":"/src/img/innomius-technologies.png",
+    "logo":"img/innomius-technologies.png",
     "position":"Freelance UI/UX Developer",
     "name":"Innomius Technologies",
     "date-range":"2013 - 2016",
@@ -25,7 +25,7 @@
   },
   {
     "id":"4",
-    "logo":"/src/img/adhocworks.png",
+    "logo":"img/adhocworks.png",
     "position":"Freelance Web Designer & Frontend Developer",
     "name":"Adhoc Works",
     "date-range":"2012 - 2017",
@@ -33,7 +33,7 @@
   },
   {
     "id":"5",
-    "logo":"/src/img/arla-design-lab.png",
+    "logo":"img/arla-design-lab.png",
     "position":"Creative Director | Partner",
     "name":"ARLA Design Lab",
     "date-range":"2012 - 2017",
@@ -42,7 +42,7 @@
   },
   {
     "id":"6",
-    "logo":"/src/img/creative-science-labs.png",
+    "logo":"img/creative-science-labs.png",
     "position":"Frontend Developer | Director of Development",
     "name":"Creative Science Labs",
     "date-range":"2015 - 2019",

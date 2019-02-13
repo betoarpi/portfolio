@@ -97,36 +97,32 @@ function menuContainerTemplate(){
     const data = await response.json()
     return data;
   }
-  const experienceList = await getExperience('https://randomuser.me/api/?results=10');
-  //console.log(experienceList);
-  experienceList.results.forEach((results) => {
-    console.log(results);
-  });
+  const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json?results=6');
 
   //Job items selector
-  const $jobList = document.querySelector('job-list');
+  const $jobList = document.querySelector('.job-list');
 
   //Template
-  function jobItemTemplate(data){
+  function jobItemTemplate(results){
     return(
-      `<article class="job-item" id="${data.id}">
+      `<article class="job-item" id="${results.id}">
         <figure class="company-logo">
-          <img src="${data.logo}" alt="${data.name} logo">
+          <img src="${results.logo}" alt="${results.name} logo">
         </figure>
         <div class="job-information">
-            <h3 class="job-name">${data.name}</h3>
-            <h4 class="job-title">${data.position}</h4>
-            <span class="job-date-range">${data.date-range}</span>
+            <h3 class="job-name">${results.name}</h3>
+            <h4 class="job-title">${results.position}</h4>
+            <span class="job-date-range">date here</span>
         </div>
       </article>`
     )
   }
 
   //Apply Template
-  /* experienceList.data.forEach((data) => {
-    const HTMLString = jobItemTemplate(data);
+  experienceList.results.forEach((results) => {
+    const HTMLString = jobItemTemplate(results);
     const html = document.implementation.createHTMLDocument();
     html.body.innerHTML = HTMLString;
     $jobList.append(html.body.children[0]);
-  }); */
+  });
 })();
