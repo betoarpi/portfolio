@@ -150,7 +150,7 @@ function menuContainerTemplate(){
     return(
       `<div class="skill-item">
         <i class="${results.icon}"></i>
-        <span class="skill-level" style="width: ${results.level}"></span>
+        <span class="skill-level"><span class="skill-bar" style="width: ${results.level}"></span></span>
         <p>${results.name}</p>
       </div>`
     )

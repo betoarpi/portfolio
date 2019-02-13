@@ -1,12 +1,12 @@
 {
   "results":[ {
     "name": "UI Design",
-    "icon": "fas fa-pen-nib",
+    "icon": "fas fa-pencil-ruler",
     "level": "100%"
   },
   {
     "name": "UI Development",
-    "icon": "fab fa-css3-alt",
+    "icon": "fas fa-code",
     "level": "100%"
   },
   {
@@ -27,7 +27,7 @@
   {
     "name": "PHP",
     "icon": "fab fa-php",
-    "level": "75%"
+    "level": "50%"
   },
   {
     "name": "Wordpress",
@@ -37,7 +37,7 @@
   {
     "name": "Project Management",
     "icon": "fas fa-tasks",
-    "level": "75%"
+    "level": "80%"
   },
   {
     "name": "Team Management",
