@@ -98,7 +98,7 @@ function menuContainerTemplate(){
     return data;
   }
   const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json?results=6');
-  const reverseChronological = experienceList.reverse();
+  
   //Job items selector
   const $jobList = document.querySelector('.job-list');
 
@@ -120,7 +120,7 @@ function menuContainerTemplate(){
   }
 
   //Apply Template
-  reverseChronological.results.forEach((results) => {
+  experienceList.results.forEach((results) => {
     const HTMLString = jobItemTemplate(results);
     const html = document.implementation.createHTMLDocument();
     html.body.innerHTML = HTMLString;
