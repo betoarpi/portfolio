@@ -142,7 +142,8 @@ function menuContainerTemplate(){
 
   //Skill item selector
   const $skillList = document.querySelector('.skill-list');
-  $skillList.removeChild($loader);
+  const $skillsLoader = document.querySelector('.skills-loader');
+  $skillList.removeChild($skillsLoader);
 
   //Template
   function skillItemTemplate(results){
