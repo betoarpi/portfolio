@@ -98,7 +98,7 @@ function menuContainerTemplate(){
     return data;
   }
   const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json?results=6');
-  
+
   //Job items selector
   const $jobList = document.querySelector('.job-list');
 
@@ -113,7 +113,6 @@ function menuContainerTemplate(){
             <h3 class="job-name">${results.name}</h3>
             <h4 class="job-title">${results.position}</h4>
             <span class="job-location job-date-range">${results.location} | ${results.daterange}</span>
-            ${results.description}
         </div>
       </article>`
     )
