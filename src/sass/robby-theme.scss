@@ -25,6 +25,7 @@ $title-fonts: 'Orbitron', sans-serif;
   display: flex;
   flex-direction: column;
   padding: 0 1.5em;
+  margin-bottom: 1.5em;
   width: 100%;
 }
 
@@ -33,7 +34,7 @@ $title-fonts: 'Orbitron', sans-serif;
   font-size: 4em;
   font-weight: 800;
   line-height: 1;
-  margin: 0 auto 1em auto;
+  margin: 0 auto 0.5em auto;
   position: relative;
   z-index: 1;
   @media screen and (max-width: 767px) {
@@ -110,7 +111,7 @@ $title-fonts: 'Orbitron', sans-serif;
       @include aspect-ratio(1, 1);
       border-radius: 10px;
       margin: 0;
-      position: relative;
+      overflow: hidden;
       @media screen and (max-width: 673px){
         border-radius: 10px 50px;
       }
@@ -132,60 +133,71 @@ $title-fonts: 'Orbitron', sans-serif;
         bottom: 0;
         left: 0;
         width: 100%;
-        mix-blend-mode: overlay;
+        mix-blend-mode: luminosity;
         max-width: 100%;
         z-index: 0;
       }
       .caption {
+        background: rgba(darken($primary-color, 10%), 0.8);
         color: $complementary-color;
         font-family: $title-fonts;
         display: block;
         position: absolute;
         top: 50%;
         left: 50%;
-        line-height: 1.2;
+        line-height: 1;
         transform: translate(-50%, -50%);
         z-index: 2;
-        font-size: 2em;
-        font-weight: 700;
+        font-size: 1.2em;
         height: auto;
         width: calc(100% - 1.5em);
-        text-shadow: 0px 0px 10px $primary-color;
-      }
-      .portfolio-link {
-        &::before {
-          content: "\f105";
-          font-size: 6em;
-          color: $links;
-          position: absolute;
-          bottom: -30px;
-          right: -22px;
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
-          font-style: normal;
-          font-variant: normal;
-          text-rendering: auto;
-          line-height: 1;
-          font-family: "Font Awesome 5 Free";
-          font-weight: 900;
-          z-index: 3;
-        }
+        box-shadow: 2px 2px 0px $second-gradient-color;
+        text-align: center;
       }
     }
-    &:nth-child(3n+1){
+    .portfolio-link {
+      &::before {
+        content: "\f067";
+        font-size: 4em;
+        color: $links;
+        position: absolute;
+        bottom: -30px;
+        right: -24px;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        z-index: 3;
+      }
+    }
+    /* &:nth-child(5n+1){
       .item-thumbnail {
         @include background-gradient-items(120deg, #84fab0, #8fd3f4);
       }
     }
-    &:nth-child(3n+2){
+    &:nth-child(5n+2){
       .item-thumbnail {
         @include background-gradient-items(120deg, #fa709a, #fee140);
       }
     }
-    &:nth-child(3n+3){
+    &:nth-child(5n+3){
       .item-thumbnail {
         @include background-gradient-items(120deg, #a18cd1, #fbc2eb);
       }
     }
+    &:nth-child(5n+4){
+      .item-thumbnail {
+        @include background-gradient-items(120deg, #616161, #9bc5c3);
+      }
+    }
+    &:nth-child(5n+5){
+      .item-thumbnail {
+        @include background-gradient-items(120deg, #b721ff, #21d4fd);
+      }
+    } */
   }
 }

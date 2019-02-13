@@ -11,6 +11,15 @@ function overlayTemplate(){
   )
 }
 
+function overlayModalTemplate(){
+  return(
+    `<div id="overlay" class="overlay">
+      <a href="#" id="close"><i class="fas fa-times-circle"></i></a>
+    </div>
+    <!-- //overlay -->`
+  )
+}
+
 function menuContainerTemplate(){
   return(
     `<nav class="menu-mobile main-navigation">
@@ -91,3 +100,16 @@ function menuContainerTemplate(){
   const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json');
   console.log(experienceList);
 })();
+
+//Portfolio Modal
+//Print the overlay an menu templates and then bring it to the DOM
+(function printModalOverlay() {
+  const $body = document.getElementById('body');
+  const HTMLString = overlayModalTemplate();
+  const html = document.implementation.createHTMLDocument();
+  html.body.innerHTML = HTMLString;
+  $body.insertBefore(html.body.children[0], $body.lastChild);
+})();
+
+/* (function showModal() {
+})(); */
