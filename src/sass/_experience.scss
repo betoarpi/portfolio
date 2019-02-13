@@ -103,6 +103,8 @@
   margin: 0 auto 3em auto;
   width: auto;
   max-width: 75%;
+  position: relative;
+  min-height: 40px;
   @media screen and (max-width: 479px) {
     max-width: 60%;
   }
@@ -241,6 +243,8 @@
   justify-self: center;
   margin: 0 auto;
   max-width: 90%;
+  position: relative;
+  min-height: 40px;
   @media screen and (max-width: 479px) {
     grid-template-columns: 1fr;
     grid-gap: initial;
