@@ -93,23 +93,40 @@ function menuContainerTemplate(){
 //Experience
 (async function loadExperience(){
   async function getExperience(url){
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await fetch(url)
+    const data = await response.json()
     return data;
   }
-  const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json');
-  console.log(experienceList);
-})();
+  const experienceList = await getExperience('https://randomuser.me/api/?results=10');
+  //console.log(experienceList);
+  experienceList.results.forEach((results) => {
+    console.log(results);
+  });
 
-//Portfolio Modal
-//Print the overlay an menu templates and then bring it to the DOM
-(function printModalOverlay() {
-  const $body = document.getElementById('body');
-  const HTMLString = overlayModalTemplate();
-  const html = document.implementation.createHTMLDocument();
-  html.body.innerHTML = HTMLString;
-  $body.insertBefore(html.body.children[0], $body.lastChild);
-})();
+  //Job items selector
+  const $jobList = document.querySelector('job-list');
 
-/* (function showModal() {
-})(); */
+  //Template
+  function jobItemTemplate(data){
+    return(
+      `<article class="job-item" id="${data.id}">
+        <figure class="company-logo">
+          <img src="${data.logo}" alt="${data.name} logo">
+        </figure>
+        <div class="job-information">
+            <h3 class="job-name">${data.name}</h3>
+            <h4 class="job-title">${data.position}</h4>
+            <span class="job-date-range">${data.date-range}</span>
+        </div>
+      </article>`
+    )
+  }
+
+  //Apply Template
+  /* experienceList.data.forEach((data) => {
+    const HTMLString = jobItemTemplate(data);
+    const html = document.implementation.createHTMLDocument();
+    html.body.innerHTML = HTMLString;
+    $jobList.append(html.body.children[0]);
+  }); */
+})();

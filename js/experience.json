@@ -1,56 +1,56 @@
 {
-  "data": {
-    "jobs": [
-      {
-        "id":"1",
-        "logo":"/src/img/logo-design-guru.png",
-        "position":"Web Designer",
-        "name":"Logo Design Guru & Guru Corporation",
-        "date-range":"2009 - 2011",
-        "location":"Ajijic, México"
-      },
-      {
-        "id":"2",
-        "logo":"/src/img/oc2-interactive.png",
-        "position":"Design Manager",
-        "name":"OC2 Interactive",
-        "date-range":"2011 - 2012",
-        "location":"Guadalajara, México"
-      },
-      {
-        "id":"3",
-        "logo":"/src/img/innomius-technologies.png",
-        "position":"Freelance UI/UX Developer",
-        "name":"Innomius Technologies",
-        "date-range":"2013 - 2016",
-        "location":"Remote"
-      },
-      {
-        "id":"4",
-        "logo":"/src/img/adhocworks.png",
-        "position":"Freelance Web Designer & Frontend Developer",
-        "name":"Adhoc Works",
-        "date-range":"2012 - 2017",
-        "location":"Remote"
-      },
-      {
-        "id":"5",
-        "logo":"/src/img/arla-design-lab.png",
-        "position":"Creative Director | Partner",
-        "name":"ARLA Design Lab",
-        "date-range":"2012 - 2017",
-        "location":"Querétaro, México",
-        "description":"This was a personal project I started up with Monica Lara. We had the fortune to design and develop many digital experiences for different clients during five years."
-      },
-      {
-        "id":"6",
-        "logo":"/src/img/creative-science-labs.png",
-        "position":"Frontend Developer | Director of Development",
-        "name":"Creative Science Labs",
-        "date-range":"2015 - 2019",
-        "location":"Remote",
-        "description":"I was part of the development team, nearly 4 years, at Creative Science Labs. During the past year, I was leading the team, managing the development process and client expectations."
-      }
-    ]
+  "results":[ {
+    "id":"1",
+    "name":"Logo Design Guru & Guru Corporation",
+    "logo":"/src/img/logo-design-guru.png",
+    "position":"Web Designer",
+    "date-range":"2009 - 2011",
+    "location":"Ajijic, México"
+  },
+  {
+    "id":"2",
+    "logo":"/src/img/oc2-interactive.png",
+    "position":"Design Manager",
+    "name":"OC2 Interactive",
+    "date-range":"2011 - 2012",
+    "location":"Guadalajara, México"
+  },
+  {
+    "id":"3",
+    "logo":"/src/img/innomius-technologies.png",
+    "position":"Freelance UI/UX Developer",
+    "name":"Innomius Technologies",
+    "date-range":"2013 - 2016",
+    "location":"Remote"
+  },
+  {
+    "id":"4",
+    "logo":"/src/img/adhocworks.png",
+    "position":"Freelance Web Designer & Frontend Developer",
+    "name":"Adhoc Works",
+    "date-range":"2012 - 2017",
+    "location":"Remote"
+  },
+  {
+    "id":"5",
+    "logo":"/src/img/arla-design-lab.png",
+    "position":"Creative Director | Partner",
+    "name":"ARLA Design Lab",
+    "date-range":"2012 - 2017",
+    "location":"Querétaro, México",
+    "description":"This was a personal project I started up with Monica Lara. We had the fortune to design and develop many digital experiences for different clients during five years."
+  },
+  {
+    "id":"6",
+    "logo":"/src/img/creative-science-labs.png",
+    "position":"Frontend Developer | Director of Development",
+    "name":"Creative Science Labs",
+    "date-range":"2015 - 2019",
+    "location":"Remote",
+    "description":"I was part of the development team, nearly 4 years, at Creative Science Labs. During the past year, I was leading the team, managing the development process and client expectations."
+  }
+  ],
+  "info": {
+    "seed": "481a590d68e7ce28", "results": 6, "page": 1, "version": "1"
   }
 }
