@@ -34,3 +34,13 @@
 	49%{opacity: 0}
 	50% {opacity: 1}
 }
+
+/* Terminal look alike blink effect for title */
+@keyframes loading {
+	from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(359deg)
+  }
+}

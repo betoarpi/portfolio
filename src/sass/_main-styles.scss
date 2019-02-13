@@ -42,3 +42,9 @@ a {
     padding-bottom: 40px;
   }
 }
+
+.loader {
+  color: darken($links, 20%);
+  font-size: 2em;
+  animation: loading 1.5s infinite linear;
+}

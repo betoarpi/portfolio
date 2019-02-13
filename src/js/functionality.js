@@ -1,3 +1,6 @@
+//Some Global selectors
+const $loader = document.querySelector('.loader');
+
 //Templates
 function overlayTemplate(){
   return(
@@ -101,6 +104,7 @@ function menuContainerTemplate(){
 
   //Job items selector
   const $jobList = document.querySelector('.job-list');
+  $jobList.removeChild($loader);
 
   //Template
   function jobItemTemplate(results){
@@ -124,5 +128,38 @@ function menuContainerTemplate(){
     const html = document.implementation.createHTMLDocument();
     html.body.innerHTML = HTMLString;
     $jobList.append(html.body.children[0]);
+  });
+})();
+
+//Skills
+(async function loadSkills(){
+  async function getSkills(url) {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data;
+  }
+  const skillListData = await getSkills('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/skills.json?results=11');
+
+  //Skill item selector
+  const $skillList = document.querySelector('.skill-list');
+  $skillList.removeChild($loader);
+
+  //Template
+  function skillItemTemplate(results){
+    return(
+      `<div class="skill-item">
+        <i class="${results.icon}"></i>
+        <span class="skill-level" style="width: ${results.level}"></span>
+        <p>${results.name}</p>
+      </div>`
+    )
+  }
+
+  //Apply Template
+  skillListData.results.forEach((results) => {
+    const HTMLString = skillItemTemplate(results);
+    const html = document.implementation.createHTMLDocument();
+    html.body.innerHTML = HTMLString;
+    $skillList.append(html.body.children[0]);
   });
 })();
