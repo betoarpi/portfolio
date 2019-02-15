@@ -46,18 +46,6 @@ function modalTemplate(){
   )
 }
 
-function portfolioItemTemplate(results){
-  return(
-    `<a href="#" class="portfolio-item" data-id="${results.id}">
-      <figure class="item-thumbnail">
-        <img src="img/portfolio_save-tigers-now.jpg" alt="Project Name">
-        <mark class="caption">Save the Tigers Now</mark>
-      </figure>
-      <span class="portfolio-link"></span>
-    </a>`
-  )
-}
-
 function createTemplate(HTMLString) {
   const html = document.implementation.createHTMLDocument();
   html.body.innerHTML = HTMLString;
@@ -216,17 +204,61 @@ function showModal($element){
 } */
 
 //Render Portfolio
-function renderPortfolio(results){
+(async function loadPortfolioData(){
+  async function getPortfolio(url){
+    const response = await fetch(url)
+    const data = await response.json()
+    return data;
+  }
+  const portfoliotData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
+
   const $portfolioList = document.querySelector('.portfolio-list');
+  
+  function portfolioItemTemplate(results){
+    return(
+      `<a href="#" class="portfolio-item" data-id="${results.id}">
+        <figure class="item-thumbnail">
+          <img src="img/portfolio_save-tigers-now.jpg" alt="Project Name">
+          <mark class="caption">Save the Tigers Now</mark>
+        </figure>
+        <span class="portfolio-link"></span>
+      </a>`
+    )
+  }
+  
+  function portfolioModalTemplate(results){
+    return(
+      `<figure class="featured">
+        <img src="img/portfolio_save-tigers-now.jpg" alt="Save The Tigers">
+      </figure>
+      <div class="project-info">
+        <h2 class="project-name">Project Name here</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?</p>
+        <ul class="technology-list">
+        </ul>
+        <a href="#" target="_blank" class="button">View Project <i class="fas fa-external-link-square-alt"></i></a>
+      </div>`
+    )
+  }
+  
+  function technologyItemTemplate(results){
+    return(
+      `<li><i class="fab fa-html5"></i> <span>Technology</span></li>`
+    )
+  }
+  
+  //Remove Loader
   if ($portfolioList) {
     if ($loader) {
       $portfolioList.removeChild($loader);
     }
-
-    results.forEach((portfolioItem) => {
-      const HTMLString = portfolioItemTemplate(portfolioItem);
-      const portfolioElement = createTemplate(HTMLString);
-      $portfolioList.append(portfolioElement);
-    });
   }
-}
+
+  //Apply Template
+  portfoliotData.results.forEach((results) => {
+    const HTMLString = portfolioItemTemplate(results);
+    const portfolioElement = createTemplate(HTMLString);
+    $portfolioList.append(portfolioElement);
+  });
+  
+})();

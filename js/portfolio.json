@@ -4,27 +4,15 @@
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
-    "technology": [
+    "technology_list": [
       {
-        "icon": "fab fa-html5",
-        "name": "HTML5"
+        "name": "HTML5",
+        "icon": "fab fa-html5"
       },
       {
-        "icon": "fab fa-css3",
-        "name": "CSS3"
-      },
-      {
-        "icon": "fab fa-php",
-        "name": "PHP"
-      },
-      {
-        "icon": "fab fa-js-square",
-        "name": "Javascript"
-      },
-      {
-        "icon": "fab fa-wordpress",
-        "name": "Wordpress"
-      },
+        "name": "CSS3",
+        "icon": "fab fa-css3"
+      }
     ],
     "link": "#"
   },
@@ -33,27 +21,15 @@
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
-    "technology": [
+    "technology_list": [
       {
-        "icon": "fab fa-html5",
-        "name": "HTML5"
+        "name": "HTML5",
+        "icon": "fab fa-html5"
       },
       {
-        "icon": "fab fa-css3",
-        "name": "CSS3"
-      },
-      {
-        "icon": "fab fa-php",
-        "name": "PHP"
-      },
-      {
-        "icon": "fab fa-js-square",
-        "name": "Javascript"
-      },
-      {
-        "icon": "fab fa-wordpress",
-        "name": "Wordpress"
-      },
+        "name": "CSS3",
+        "icon": "fab fa-css3"
+      }
     ],
     "link": "#"
   },
@@ -62,27 +38,15 @@
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
-    "technology": [
+    "technology_list": [
       {
-        "icon": "fab fa-html5",
-        "name": "HTML5"
+        "name": "HTML5",
+        "icon": "fab fa-html5"
       },
       {
-        "icon": "fab fa-css3",
-        "name": "CSS3"
-      },
-      {
-        "icon": "fab fa-php",
-        "name": "PHP"
-      },
-      {
-        "icon": "fab fa-js-square",
-        "name": "Javascript"
-      },
-      {
-        "icon": "fab fa-wordpress",
-        "name": "Wordpress"
-      },
+        "name": "CSS3",
+        "icon": "fab fa-css3"
+      }
     ],
     "link": "#"
   },
@@ -91,27 +55,15 @@
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
-    "technology": [
+    "technology_list": [
       {
-        "icon": "fab fa-html5",
-        "name": "HTML5"
+        "name": "HTML5",
+        "icon": "fab fa-html5"
       },
       {
-        "icon": "fab fa-css3",
-        "name": "CSS3"
-      },
-      {
-        "icon": "fab fa-php",
-        "name": "PHP"
-      },
-      {
-        "icon": "fab fa-js-square",
-        "name": "Javascript"
-      },
-      {
-        "icon": "fab fa-wordpress",
-        "name": "Wordpress"
-      },
+        "name": "CSS3",
+        "icon": "fab fa-css3"
+      }
     ],
     "link": "#"
   },
@@ -120,27 +72,15 @@
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
-    "technology": [
+    "technology_list": [
       {
-        "icon": "fab fa-html5",
-        "name": "HTML5"
+        "name": "HTML5",
+        "icon": "fab fa-html5"
       },
       {
-        "icon": "fab fa-css3",
-        "name": "CSS3"
-      },
-      {
-        "icon": "fab fa-php",
-        "name": "PHP"
-      },
-      {
-        "icon": "fab fa-js-square",
-        "name": "Javascript"
-      },
-      {
-        "icon": "fab fa-wordpress",
-        "name": "Wordpress"
-      },
+        "name": "CSS3",
+        "icon": "fab fa-css3"
+      }
     ],
     "link": "#"
   },
@@ -149,27 +89,15 @@
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
-    "technology": [
+    "technology_list": [
       {
-        "icon": "fab fa-html5",
-        "name": "HTML5"
+        "name": "HTML5",
+        "icon": "fab fa-html5"
       },
       {
-        "icon": "fab fa-css3",
-        "name": "CSS3"
-      },
-      {
-        "icon": "fab fa-php",
-        "name": "PHP"
-      },
-      {
-        "icon": "fab fa-js-square",
-        "name": "Javascript"
-      },
-      {
-        "icon": "fab fa-wordpress",
-        "name": "Wordpress"
-      },
+        "name": "CSS3",
+        "icon": "fab fa-css3"
+      }
     ],
     "link": "#"
   }
