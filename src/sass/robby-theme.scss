@@ -19,17 +19,20 @@ $title-fonts: 'Orbitron', sans-serif;
 @import 'me';
 @import 'main-styles';
 @import 'experience';
+@import 'portfolio';
 
-.portfolio-container {
-  box-sizing: border-box;
+.contact-container {
   display: flex;
   flex-direction: column;
-  padding: 0 1.5em;
-  margin-bottom: 1.5em;
-  width: 100%;
+  margin: 0 auto 3em auto;
+  min-height: 300px;
+  padding: 0 2em;
+  @media screen and (min-width: 480px) {
+    flex: 0 1 600px;
+  }
 }
 
-.portfolio-title {
+.contact-title {
   font-family: $title-fonts;
   font-size: 4em;
   font-weight: 800;
@@ -51,7 +54,7 @@ $title-fonts: 'Orbitron', sans-serif;
     top: -30px;
   }
   &:before {
-    content: "Portfolio";
+    content: "Contact Rob";
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: $second-gradient-color;
@@ -62,7 +65,7 @@ $title-fonts: 'Orbitron', sans-serif;
     z-index: -1;
   }
   &:after {
-    content: "Portfolio";
+    content: "Contact Rob";
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: $links;
@@ -74,130 +77,50 @@ $title-fonts: 'Orbitron', sans-serif;
   }
 }
 
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-  > figcaption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
-
-.portfolio-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-bottom: 2em;
-  @media screen and (min-width: 674px){
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2em;
-  }
-  @media screen and (min-width: 1024px){
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .portfolio-item {
+.wufoo {
+  ul {
     display: grid;
-    grid-template: 1fr / 1fr;
-    position: relative;
-    margin-bottom: 2em;
-    .item-thumbnail {
-      @include aspect-ratio(1, 1);
-      border-radius: 10px;
-      margin: 0;
-      overflow: hidden;
-      @media screen and (max-width: 673px){
-        border-radius: 10px 50px;
-      }
-      &::after {
-        background: rgba($font-color, 0.4);
-        content: " ";
-        mix-blend-mode: color;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 1;
-      }
-      img {
-        position: absolute;
-        top:0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        mix-blend-mode: luminosity;
+    grid-gap: 1em;
+    padding-left: 0;
+    max-width: 100%;
+    @media screen and (min-width: 480px) {
+      grid-template: 1fr / 1fr 1fr;
+    }
+    li {
+      box-sizing: border-box;
+      list-style: none;
+      max-width: 100%;
+      input, textarea {
+        box-sizing: border-box;
+        color: lighten($font-color, 20%);
+        font-family: $font-family;
+        font-weight: normal;
         max-width: 100%;
-        z-index: 0;
+        padding: 0.25em 0.5em;
+        width: 100%;
+        &:focus {
+          outline-color: $second-gradient-color;
+          outline-width: 1px;
+        }
       }
-      .caption {
-        background: rgba(darken($primary-color, 10%), 0.8);
-        color: $complementary-color;
+      label {
         font-family: $title-fonts;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        line-height: 1;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        font-size: 1.2em;
-        height: auto;
-        width: calc(100% - 1.5em);
-        box-shadow: 2px 2px 0px $second-gradient-color;
-        text-align: center;
+        line-height: 1.5;
+        width: 100%;
+        max-width: 100%;
+        .req {
+          color: $second-gradient-color;
+          font-weight: 800;
+        }
+      }
+      &.hide {
+        display: none;
+      }
+      &.span2 {
+        @media screen and (min-width: 480px) {
+          grid-column: 1 / span 2;
+        }
       }
     }
-    .portfolio-link {
-      &::before {
-        content: "\f067";
-        font-size: 4em;
-        color: $links;
-        position: absolute;
-        bottom: -30px;
-        right: -24px;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        line-height: 1;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        z-index: 3;
-      }
-    }
-    /* &:nth-child(5n+1){
-      .item-thumbnail {
-        @include background-gradient-items(120deg, #84fab0, #8fd3f4);
-      }
-    }
-    &:nth-child(5n+2){
-      .item-thumbnail {
-        @include background-gradient-items(120deg, #fa709a, #fee140);
-      }
-    }
-    &:nth-child(5n+3){
-      .item-thumbnail {
-        @include background-gradient-items(120deg, #a18cd1, #fbc2eb);
-      }
-    }
-    &:nth-child(5n+4){
-      .item-thumbnail {
-        @include background-gradient-items(120deg, #616161, #9bc5c3);
-      }
-    }
-    &:nth-child(5n+5){
-      .item-thumbnail {
-        @include background-gradient-items(120deg, #b721ff, #21d4fd);
-      }
-    } */
   }
 }

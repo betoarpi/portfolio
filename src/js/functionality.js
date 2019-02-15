@@ -1,20 +1,10 @@
 //Some Global selectors
 const $loader = document.querySelector('.loader');
+const $overlay = document.getElementById('overlay');
+const $modal = document.getElementById('modal');
 
 //Templates
 function overlayTemplate(){
-  return(
-    `<div id="overlay" class="overlay">
-      <div class="menu-container" id="menu-mobile-container">
-        <div class="shape-container"><img src="src/img/organic-shape.svg" alt=""></div>
-      </div>
-      <a href="#" id="close"><i class="fas fa-times-circle"></i></a>
-    </div>
-    <!-- //overlay -->`
-  )
-}
-
-function overlayModalTemplate(){
   return(
     `<div id="overlay" class="overlay">
       <a href="#" id="close"><i class="fas fa-times-circle"></i></a>
@@ -24,6 +14,14 @@ function overlayModalTemplate(){
 }
 
 function menuContainerTemplate(){
+  return(
+    `<div class="menu-container" id="menu-mobile-container">
+      <div class="shape-container"><img src="src/img/organic-shape.svg" alt=""></div>
+    </div>`
+  )
+}
+
+function menuTemplate(){
   return(
     `<nav class="menu-mobile main-navigation">
         <ul>
@@ -42,31 +40,58 @@ function menuContainerTemplate(){
   )
 }
 
+function modalTemplate(){
+  return(
+    `<div class="modal" id="modal"></div>`
+  )
+}
+
+function portfolioItemTemplate(results){
+  return(
+    `<a href="#" class="portfolio-item" data-id="${results.id}">
+      <figure class="item-thumbnail">
+        <img src="img/portfolio_save-tigers-now.jpg" alt="Project Name">
+        <mark class="caption">Save the Tigers Now</mark>
+      </figure>
+      <span class="portfolio-link"></span>
+    </a>`
+  )
+}
+
+function createTemplate(HTMLString) {
+  const html = document.implementation.createHTMLDocument();
+  html.body.innerHTML = HTMLString;
+  return html.body.children[0];
+}
+
 //Print the overlay an menu templates and then bring it to the DOM
 (function printOverlay() {
   const $body = document.getElementById('body');
   const HTMLString = overlayTemplate();
-  const html = document.implementation.createHTMLDocument();
-  html.body.innerHTML = HTMLString;
-  $body.insertBefore(html.body.children[0], $body.lastChild);
+  const overlayElement = createTemplate(HTMLString);
+  $body.insertBefore(overlayElement, $body.lastChild);
 })();
 
 (function printDesktopMenu() {
-  const HTMLString = menuContainerTemplate();
-  const html = document.implementation.createHTMLDocument();
-  html.body.innerHTML = HTMLString;
-  
+  const HTMLString = menuTemplate();
+  const menuElement = createTemplate(HTMLString);
   const $containerCard = document.getElementById('container-card');
-  $containerCard.insertBefore(html.body.children[0], $containerCard.childNodes[0]);
+  $containerCard.insertBefore(menuElement, $containerCard.childNodes[0]);
 })();
 
-(function printMobileMenu() {
+function printMenuContainer() {
   const HTMLString = menuContainerTemplate();
-  const html = document.implementation.createHTMLDocument();
-  html.body.innerHTML = HTMLString;
-  
+  const menuContainerElement = createTemplate(HTMLString);
+  const $menuOverlay = document.getElementById('overlay');
+  $menuOverlay.insertBefore(menuContainerElement, $menuOverlay.childNodes[0]);
+}
+
+(function printMobileMenu() {
+  printMenuContainer();
+  const HTMLString = menuTemplate();
+  const mobileMenuElement = createTemplate(HTMLString);
   const $menuMobileContainer = document.getElementById('menu-mobile-container');
-  $menuMobileContainer.insertBefore(html.body.children[0], $menuMobileContainer.childNodes[0]);
+  $menuMobileContainer.insertBefore(mobileMenuElement, $menuMobileContainer.childNodes[0]);
 })();
 
 //Mobile Menu Functionality
@@ -74,7 +99,7 @@ function menuContainerTemplate(){
   //Get DOM Elements
   const $menuContainer = document.getElementById('menu-mobile-container');
   const $menuTrigger = document.querySelector('#mobile-menu-trigger');
-  const $overlay = document.getElementById('overlay');
+  const $overlay = document.getElementById('overlay')
 
   $menuTrigger.addEventListener("click", function(event) {
     event.preventDefault();
@@ -92,7 +117,6 @@ function menuContainerTemplate(){
     $menuContainer.classList.remove('active');
   })
 })();
-
 //Experience
 (async function loadExperience(){
   async function getExperience(url){
@@ -104,7 +128,11 @@ function menuContainerTemplate(){
 
   //Job items selector
   const $jobList = document.querySelector('.job-list');
-  $jobList.removeChild($loader);
+  if ($jobList) {
+    if ($loader) {
+      $jobList.removeChild($loader);
+    } 
+  }
 
   //Template
   function jobItemTemplate(results){
@@ -123,12 +151,13 @@ function menuContainerTemplate(){
   }
 
   //Apply Template
-  experienceList.results.forEach((results) => {
-    const HTMLString = jobItemTemplate(results);
-    const html = document.implementation.createHTMLDocument();
-    html.body.innerHTML = HTMLString;
-    $jobList.append(html.body.children[0]);
-  });
+  if ($jobList) {
+    experienceList.results.forEach((results) => {
+      const HTMLString = jobItemTemplate(results);
+      const experienceElement = createTemplate(HTMLString);
+      $jobList.append(experienceElement);
+    });
+  }
 })();
 
 //Skills
@@ -143,7 +172,11 @@ function menuContainerTemplate(){
   //Skill item selector
   const $skillList = document.querySelector('.skill-list');
   const $skillsLoader = document.querySelector('.skills-loader');
-  $skillList.removeChild($skillsLoader);
+  if ($skillList) {
+    if ($skillsLoader) {
+      $skillList.removeChild($skillsLoader);
+    }
+  }  
 
   //Template
   function skillItemTemplate(results){
@@ -159,8 +192,41 @@ function menuContainerTemplate(){
   //Apply Template
   skillListData.results.forEach((results) => {
     const HTMLString = skillItemTemplate(results);
-    const html = document.implementation.createHTMLDocument();
-    html.body.innerHTML = HTMLString;
-    $skillList.append(html.body.children[0]);
+    const skillsElement = createTemplate(HTMLString);
+    if ($skillList) {
+      $skillList.append(skillsElement);
+    }
   });
 })();
+
+
+
+//Show Modal
+function showModal($element){
+  $modal.classList.add('active');
+}
+
+//Projects Modal
+/* function portfolioModal(){
+  const $portfolioModal = document.getElementById('modal');
+  $portfolioModal.classList.add('portfolio-modal');
+
+  const $overlay = document.getElementById('overlay');
+  
+} */
+
+//Render Portfolio
+function renderPortfolio(results){
+  const $portfolioList = document.querySelector('.portfolio-list');
+  if ($portfolioList) {
+    if ($loader) {
+      $portfolioList.removeChild($loader);
+    }
+
+    results.forEach((portfolioItem) => {
+      const HTMLString = portfolioItemTemplate(portfolioItem);
+      const portfolioElement = createTemplate(HTMLString);
+      $portfolioList.append(portfolioElement);
+    });
+  }
+}

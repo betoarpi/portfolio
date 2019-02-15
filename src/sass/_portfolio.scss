@@ -1,0 +1,226 @@
+.portfolio-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5em;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+
+.portfolio-title {
+  font-family: $title-fonts;
+  font-size: 4em;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0 auto 0.5em auto;
+  position: relative;
+  z-index: 1;
+  @media screen and (max-width: 767px) {
+    font-size: 2.4em;
+  }
+  @media screen and (max-width: 479px) {
+    font-size: 1.8em;
+  }
+  span {
+    font-weight: normal;
+    font-size: 0.4em;
+    line-height: 1;
+    position: absolute;
+    top: -30px;
+  }
+  &:before {
+    content: "Portfolio";
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $second-gradient-color;
+    opacity: 0.5;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    z-index: -1;
+  }
+  &:after {
+    content: "Portfolio";
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $links;
+    opacity: 0.6;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: -1;
+  }
+}
+
+.portfolio-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 2em;
+  @media screen and (min-width: 674px){
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2em;
+  }
+  @media screen and (min-width: 1024px){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .portfolio-item {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    position: relative;
+    margin-bottom: 2em;
+    .item-thumbnail {
+      @include aspect-ratio(1, 1);
+      border-radius: 10px;
+      margin: 0;
+      overflow: hidden;
+      @media screen and (max-width: 673px){
+        border-radius: 10px 50px;
+      }
+      &::after {
+        background: rgba($font-color, 0.4);
+        content: " ";
+        mix-blend-mode: color;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+      img {
+        position: absolute;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        mix-blend-mode: luminosity;
+        max-width: 100%;
+        z-index: 0;
+      }
+      .caption {
+        background: rgba(darken($primary-color, 10%), 0.8);
+        color: $complementary-color;
+        font-family: $title-fonts;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        line-height: 1;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        font-size: 1.2em;
+        height: auto;
+        width: calc(100% - 1.5em);
+        text-align: center;
+      }
+    }
+    .portfolio-link {
+      &::before {
+        content: "+";
+        font-size: 3.5em;
+        color: $links;
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        line-height: 1;
+        z-index: 3;
+      }
+    }
+    &:hover {
+      .item-thumbnail {
+        img {
+          mix-blend-mode: normal;
+        }
+      }
+    }
+    &:nth-child(5n+1){
+      .caption {
+        box-shadow: 2px 2px 0px $second-gradient-color;
+      }
+    }
+    &:nth-child(5n+2){
+      .caption {
+        box-shadow: 2px 2px 0px $links;
+      }
+    }
+    &:nth-child(5n+3){
+      .caption {
+        box-shadow: 2px 2px 0px $complementary-color;
+      }
+    }
+    &:nth-child(5n+4){
+      .caption {
+        box-shadow: 2px 2px 0px #00e3ae;
+      }
+    }
+    &:nth-child(5n+5){
+      .caption {
+        box-shadow: 2px 2px 0px #f9d423;
+      }
+    }
+  }
+}
+
+.portfolio-modal {
+  .featured {
+    @include aspect-ratio(1, 1);
+    margin: 0;
+    overflow: hidden;
+    @media screen and (min-width: 1024px) {
+      flex: 0 1 600px;
+    }
+    img {
+      width: 102%;
+    }
+    &::after {
+      content: " ";
+      width: 0; 
+      height: 0; 
+      border-top: 120px solid transparent;
+      border-bottom: 470px solid transparent;
+      border-left: 50px solid $complementary-color;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      @media screen and (max-width: 1023px) {
+        border-left: 120px solid transparent;
+        border-right: 470px solid transparent;
+        border-bottom: 50px solid $complementary-color;
+        top: initial;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  .project-info {
+    flex: 1 1 400px;
+    padding: 0 2em 3em;
+    max-height: 350px;
+    @media screen and (max-width: 1090px) {
+      overflow-y: scroll;
+    }
+    .project-name {
+      font-family: $title-fonts;
+      font-size: 2em;
+      line-height: 1;
+      margin-top: 1.5em;
+      @media screen and (max-width: 479px) {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+.technology-list {
+  margin: 0 0 1.5em 0;
+  padding: 0;
+  li {
+    color: lighten($font-color, 35%);
+    display: inline-block;
+    font-size: 0.8em;
+    list-style: none;
+    //padding: 2px 5px;
+    margin: 0 0.5em 0.3em 0;
+  }
+}
