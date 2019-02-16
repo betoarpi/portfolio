@@ -61,3 +61,38 @@
     transform: rotate(359deg)
   }
 }
+
+/* Animation for showing modal */
+  @keyframes modalIn {
+    0% {
+      margin: -100% auto 0 auto;
+    }
+    60% {
+      margin: 125px auto 0 auto;
+    }
+    75% {
+      margin: -5px auto 0 auto;
+    }
+    90% {
+      margin: 122px auto 0 auto;
+    }
+    100% {
+      margin: 120px auto 0 auto;
+    }
+  }
+  
+  /* Animation for closing modal */
+  @keyframes modalOut {
+    0% {
+      margin: 122px auto 0 auto;
+    }
+    60% {
+      margin: -5px auto 0 auto;
+    }
+    75% {
+      margin: 125px auto 0 auto;
+    }
+    100% {
+      margin: -100% auto 0 auto;
+    }
+  }

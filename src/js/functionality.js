@@ -1,7 +1,5 @@
-//Some Global selectors
+//Loader icon present in various pages waitin for data to get loaded
 const $loader = document.querySelector('.loader');
-const $overlay = document.getElementById('overlay');
-const $modal = document.getElementById('modal');
 
 //Templates
 function overlayTemplate(){
@@ -40,12 +38,6 @@ function menuTemplate(){
   )
 }
 
-function modalTemplate(){
-  return(
-    `<div class="modal" id="modal"></div>`
-  )
-}
-
 function createTemplate(HTMLString) {
   const html = document.implementation.createHTMLDocument();
   html.body.innerHTML = HTMLString;
@@ -59,6 +51,8 @@ function createTemplate(HTMLString) {
   const overlayElement = createTemplate(HTMLString);
   $body.insertBefore(overlayElement, $body.lastChild);
 })();
+const $overlay = document.getElementById('overlay');
+const $closeX = document.getElementById('close');
 
 (function printDesktopMenu() {
   const HTMLString = menuTemplate();
@@ -187,21 +181,23 @@ function printMenuContainer() {
   });
 })();
 
-
-
-//Show Modal
-function showModal($element){
-  $modal.classList.add('active');
+function modalTemplate(){
+  return(
+    `<div class="portfolio-modal modal" id="modal">
+      <figure class="featured">
+        <img src="img/portfolio_save-tigers-now.jpg" alt="Nombre de Proyecto">
+      </figure>
+      <div class="project-info">
+        <h2 class="project-name">Project Name</h2>
+        <div class="project-description"></div>
+        <ul class="technology-list">
+        <li><i class="fab fa-html5"></i> <span>HTML5</span></li>
+        </ul>
+        <a href="#" target="_blank" class="button" id="project-link">View Project <i class="fas fa-external-link-square-alt"></i></a>
+      </div>
+    </div>`
+  )
 }
-
-//Projects Modal
-/* function portfolioModal(){
-  const $portfolioModal = document.getElementById('modal');
-  $portfolioModal.classList.add('portfolio-modal');
-
-  const $overlay = document.getElementById('overlay');
-  
-} */
 
 //Render Portfolio
 (async function loadPortfolioData(){
@@ -210,55 +206,88 @@ function showModal($element){
     const data = await response.json()
     return data;
   }
-  const portfoliotData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
+  const portfolioData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
+  console.log(portfolioData);
 
+  //Print Modal if the portfolio list exists
   const $portfolioList = document.querySelector('.portfolio-list');
-  
+  if ($portfolioList) {
+    //Print Modal
+    (function printModal($element) {
+      const $modalOverlay = document.getElementById('overlay');
+      const HTMLString = modalTemplate($element);
+      const modalElement = createTemplate(HTMLString);
+      $modalOverlay.insertBefore(modalElement, $modalOverlay.lastChild);
+    })();
+  }
+
+  const $modal = document.getElementById('modal');
+  const $projectImg = document.querySelector('.featured');
+  const $projectName = document.querySelector('.project-name');
+  const $projectDescription = document.querySelector('.project-description');
+  const $technologyList = document.querySelector('.technology-list');
+  const $projectLink = document.getElementById('project-link');
+
+  //Show Modal
+  function showModal($element){
+    $overlay.classList.add('active');
+    $closeX.classList.add('close-modal');
+    $modal.style.animation = "modalIn .8s forwards";
+    const id = $element.dataset.id;
+    const project = $element.dataset.project;
+    console.log(project);
+
+    $projectImg.setAttribute('src', $element.dataset.img);
+    $projectImg.setAttribute('alt', $element.dataset.id);
+    $projectName.textContent = $element.dataset.project;
+    $projectDescription.textContent = $element.dataset.description;
+    //$technologyList
+    $projectLink.setAttribute('href', $element.dataset.link);
+  }
+
+  $closeX.addEventListener('click', () => {
+    $overlay.classList.remove('active');
+    $closeX.classList.remove('close-modal');
+    $modal.style.animation = "modalOut .8s forwards";
+  });
+
+
+
+
+
   function portfolioItemTemplate(results){
     return(
-      `<a href="#" class="portfolio-item" data-id="${results.id}">
+      `<a href="#" class="portfolio-item" 
+      data-id="${results.id}"
+      data-img="${results.image}"
+      data-project="${results.project}"
+      data-description="${results.description}"
+      data-link=${results.link}>
         <figure class="item-thumbnail">
-          <img src="img/portfolio_save-tigers-now.jpg" alt="Project Name">
-          <mark class="caption">Save the Tigers Now</mark>
+          <img src="${results.image}" alt="${results.project}">
+          <mark class="caption">${results.project}</mark>
         </figure>
         <span class="portfolio-link"></span>
       </a>`
     )
   }
-  
-  function portfolioModalTemplate(results){
-    return(
-      `<figure class="featured">
-        <img src="img/portfolio_save-tigers-now.jpg" alt="Save The Tigers">
-      </figure>
-      <div class="project-info">
-        <h2 class="project-name">Project Name here</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?</p>
-        <ul class="technology-list">
-        </ul>
-        <a href="#" target="_blank" class="button">View Project <i class="fas fa-external-link-square-alt"></i></a>
-      </div>`
-    )
-  }
-  
-  function technologyItemTemplate(results){
-    return(
-      `<li><i class="fab fa-html5"></i> <span>Technology</span></li>`
-    )
-  }
-  
-  //Remove Loader
-  if ($portfolioList) {
-    if ($loader) {
-      $portfolioList.removeChild($loader);
-    }
-  }
 
-  //Apply Template
-  portfoliotData.results.forEach((results) => {
+  //Event
+  function portfolioModalClick($element){
+    $element.addEventListener('click', () => {
+      event.preventDefault();
+      showModal($element);
+    });
+  }
+  
+  (function renderPortfolio() {
+    $portfolioList.children[0].remove();
+    portfolioData.results.forEach((results) => {
     const HTMLString = portfolioItemTemplate(results);
     const portfolioElement = createTemplate(HTMLString);
     $portfolioList.append(portfolioElement);
-  });
+    portfolioModalClick(portfolioElement);
+    })
+  })();
   
 })();

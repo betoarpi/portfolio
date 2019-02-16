@@ -36,78 +36,6 @@
       &.who-am-i {
         display: none;
       }
-      /* &.me {
-        a {
-          &:hover {
-            &:before {
-              content: "me";
-              //border-bottom: 1px solid $primary-color;
-              color: transparent;
-              -webkit-text-stroke-width: 1px;
-              -webkit-text-stroke-color: $primary-color;
-              opacity: 0.8s;
-              position: absolute;
-              top: -1px;
-              left: -1px;
-              z-index: 0;
-            }
-          }
-        }
-      }
-      &.experience {
-        a {
-          &:hover {
-            &:before {
-              content: "experience";
-              //border-bottom: 1px solid $primary-color;
-              color: transparent;
-              -webkit-text-stroke-width: 1px;
-              -webkit-text-stroke-color: $primary-color;
-              opacity: 0.8s;
-              position: absolute;
-              top: -1px;
-              left: -1px;
-              z-index: 0;
-            }
-          }
-        }
-      }
-      &.portfolio {
-        a {
-          &:hover {
-            &:before {
-              content: "portfolio";
-              //border-bottom: 1px solid $primary-color;
-              color: transparent;
-              -webkit-text-stroke-width: 1px;
-              -webkit-text-stroke-color: $primary-color;
-              opacity: 0.8s;
-              position: absolute;
-              top: -1px;
-              left: -1px;
-              z-index: 0;
-            }
-          }
-        }
-      }
-      &.contact {
-        a {
-          &:hover {
-            &:before {
-              content: "contact";
-              //border-bottom: 1px solid $primary-color;
-              color: transparent;
-              -webkit-text-stroke-width: 1px;
-              -webkit-text-stroke-color: $primary-color;
-              opacity: 0.8s;
-              position: absolute;
-              top: -1px;
-              left: -1px;
-              z-index: 0;
-            }
-          }
-        }
-      } */
     }
   }
   .mobile-menu-trigger {
@@ -144,10 +72,11 @@
   justify-content: flex-start;
   width: calc(100% - 110px);
   transform: translateX(-100%);
-  position: relative;
+  position: absolute;
   overflow: hidden;
   z-index: -100;
   &.active {
+    position: relative;
     transform: translateX(0);
     transition: all 0.3s ease-in-out;
     transition-delay: 0.3s;

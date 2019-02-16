@@ -1,9 +1,9 @@
 {
   "results":[ {
     "id": "6",
-    "project": "Project Name",
+    "project": "Save the Tigers",
     "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
+    "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -14,13 +14,13 @@
         "icon": "fab fa-css3"
       }
     ],
-    "link": "#"
+    "link": "#tigers-link"
   },
   {
     "id": "5",
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
+    "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -37,7 +37,7 @@
     "id": "4",
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
+    "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -54,7 +54,7 @@
     "id": "3",
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
+    "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -71,7 +71,7 @@
     "id": "2",
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
+    "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -88,7 +88,7 @@
     "id": "1",
     "project": "Project Name",
     "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?",
+    "description": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab veritatis consequatur hic nemo magni! Vitae aliquid perspiciatis ipsam recusandae, minima eius magni illum esse saepe iusto optio doloremque dicta veniam?<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
