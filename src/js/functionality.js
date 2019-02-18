@@ -214,6 +214,8 @@ function modalTemplate(){
         <div class="project-description"></div>
         <ul class="technology-list">
         <li><i class="fab fa-html5"></i> <span>HTML5</span></li>
+        <li><i class="fab fa-css3"></i> <span>CSS3</span></li>
+        <li><i class="fab fa-js-square"></i> <span>Javascript</span></li>
         </ul>
         <a href="#" target="_blank" class="button" id="project-link">View Project <i class="fas fa-external-link-square-alt"></i></a>
       </div>
