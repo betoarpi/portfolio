@@ -257,12 +257,9 @@ function modalTemplate(){
     $overlay.classList.add('active');
     $closeX.classList.add('close-modal');
     $modal.style.animation = "modalIn .8s forwards";
-    const id = $element.dataset.id;
-    const project = $element.dataset.img;
-    console.log(project);
 
     $projectImg.setAttribute('src', $element.dataset.img);
-    $projectImg.setAttribute('alt', $element.dataset.id);
+    $projectImg.setAttribute('alt', $element.dataset.project);
     $projectName.textContent = $element.dataset.project;
     $projectDescription.innerHTML = $element.dataset.description;
     //$technologyList
