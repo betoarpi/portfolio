@@ -27,10 +27,10 @@ function menuTemplate(){
               <span class="name">Rob Arroyo</span>
               <span class="title"><i class="fas fa-terminal"></i> / UX_Designer / Frontend_Developer (master): $</span>
           </li>
-          <li class="me"><a href="#"><i class="fas fa-robot"></i> me</a></li>
-          <li class="experience"><a href="#"><i class="fas fa-rocket"></i> experience</a></li>
-          <li class="portfolio"><a href="#"><i class="fas fa-images"></i> portfolio</a></li>
-          <li class="contact"><a href="#"><i class="fas fa-satellite-dish"></i> contact</a></li>
+          <li class="me"><a href="index.html"><i class="fas fa-robot"></i> me</a></li>
+          <li class="experience"><a href="experience.html"><i class="fas fa-rocket"></i> experience</a></li>
+          <li class="portfolio"><a href="portfolio.html"><i class="fas fa-images"></i> portfolio</a></li>
+          <li class="contact"><a href="contact.html"><i class="fas fa-satellite-dish"></i> contact</a></li>
         </ul>
         <a href="#" class="mobile-menu-trigger" id="mobile-menu-trigger"><i class="fas fa-bars"></i></a>
       </nav>
@@ -99,6 +99,28 @@ function printMenuContainer() {
     $menuContainer.classList.remove('active');
   })
 })();
+
+//Assign active class to menu elements
+const currentURL = document.location.pathname;
+const $meURL = document.querySelector('.me');
+const $experienceURL = document.querySelector('.experience');
+const $portfolioURL = document.querySelector('.portfolio');
+const $contactURL = document.querySelector('.contact');
+switch (currentURL) {
+  case "/D:/Proyectos/Robby%20Site/experience.html":
+    document.querySelector('.experience').classList.add('active');
+    break;
+  case "/D:/Proyectos/Robby%20Site/portfolio.html":
+    document.querySelector('.portfolio').classList.add('active');
+    break;
+  case "/D:/Proyectos/Robby%20Site/contact.html":
+    document.querySelector('.contact').classList.add('active');
+    break;
+  default:
+    $meURL.classList.add('active');
+    break;
+}
+
 //Experience
 (async function loadExperience(){
   async function getExperience(url){

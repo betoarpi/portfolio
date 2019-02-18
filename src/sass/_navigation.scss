@@ -36,6 +36,11 @@
       &.who-am-i {
         display: none;
       }
+      &.active {
+        a {
+          color: $second-gradient-color;
+        }
+      }
     }
   }
   .mobile-menu-trigger {

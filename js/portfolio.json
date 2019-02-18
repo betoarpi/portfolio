@@ -31,8 +31,8 @@
   {
     "id": "5",
     "project": "School Control",
-    "image": "img/portfolio_schoolcontrol.jpg",
-    "description": "<p>SchoolControl is a award winner Mexican startup that offers a management and a communication tool for schools and parents. I’ve collaborated with SchoolControl as a frontend developer since they started building their teachers web app a few years back. I have also participated in the continuous improvement plan, working with their team developing new features for the web app.< \/p>",
+    "image": "img/portfolio_schoolcontrol.png",
+    "description": "<p>SchoolControl is a award winner Mexican startup that offers a management and a communication tool for schools and parents. I’ve collaborated with SchoolControl as a frontend developer since they started building their teachers web app a few years back. I have also participated in the continuous improvement plan, working with their team developing new features for the web app.<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -51,14 +51,10 @@
   },
   {
     "id": "4",
-    "project": "Biencom International",
-    "image": "img/portfolio_biencom.jpg",
-    "description": "<p>Chris Grünewald contacted me to refresh his Real Estate company’s web presence. The company was called Casa México, but they split, and he wanted to create his own brand. I designed and developed the website, using Wordpress as a content management system. Today, Biencom’s website serves as an important tool for their business to sell and rent houses.< \/p>",
+    "project": "Friends of The Global Fight",
+    "image": "img/portfolio_friends-of-the-global-fight.png",
+    "description": "<p><\/p>",
     "technology_list": [
-      {
-        "name": "Web Design",
-        "icon": "fas fa-pencil-ruler"
-      },
       {
         "name": "HTML5",
         "icon": "fab fa-html5"
@@ -68,25 +64,25 @@
         "icon": "fab fa-css3"
       },
       {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      },
-      {
         "name": "Wordpress",
         "icon": "fab fa-wordpress"
       },
       {
         "name": "PHP",
         "icon": "fab fa-php"
+      },
+      {
+        "name": "Javascript",
+        "icon": "fab fa-js-square"
       }
     ],
-    "link": "http://buychapala.com/"
+    "link": "https://www.theglobalfight.org/"
   },
   {
     "id": "3",
     "project": "COMAPROD",
     "image": "img/portfolio_comaprod.jpg",
-    "description": "<p>COMAPROD is the Mexican Council for the Accreditation of Design Programs. Stephanie Alcocer, who was the designer and lead of the project, contacted me to collaborate on refreshing this website and the user experience. The old website was built in a deprecated CMS and was hard to maintain. The result was a more user-friendly platform for both, administrators and users.< \/p>",
+    "description": "<p>COMAPROD is the Mexican Council for the Accreditation of Design Programs. Stephanie Alcocer, who was the designer and lead of the project, contacted me to collaborate on refreshing this website and the user experience. The old website was built in a deprecated CMS and was hard to maintain. The result was a more user-friendly platform for both, administrators and users.<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
@@ -114,8 +110,8 @@
   {
     "id": "2",
     "project": "Medrenlogic",
-    "image": "img/portfolio_medrenlogic.jpg",
-    "description": "<p>Medrenlogic is an IT agency that helps other companies grow and transition to the digital era. I have collaborated with Medrenlogic in many projects, their web design and development was one of them.< \/p>",
+    "image": "img/portfolio_medrenlogic.png",
+    "description": "<p>Medrenlogic is an IT agency that helps other companies grow and transition to the digital era. I have collaborated with Medrenlogic in many projects, their web design and development was one of them.<\/p>",
     "technology_list": [
       {
         "name": "Web Design",
@@ -147,8 +143,8 @@
   {
     "id": "1",
     "project": "Optoro",
-    "image": "img/portfolio_optoro.jpg",
-    "description": "<p>Optoro is a software platform that helps retailers find the next best home for their returned and excess inventory. This was a challenging project due to the variety of web components and content. I developed the Wordpress theme as part of the Creative Science Labs team.< \/p>",
+    "image": "img/portfolio_optoro.png",
+    "description": "<p>Optoro is a software platform that helps retailers find the next best home for their returned and excess inventory. This was a challenging project due to the variety of web components and content. I developed the Wordpress theme as part of the Creative Science Labs team.<\/p>",
     "technology_list": [
       {
         "name": "HTML5",
