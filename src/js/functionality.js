@@ -240,7 +240,7 @@ function modalTemplate(){
     $projectImg.setAttribute('src', $element.dataset.img);
     $projectImg.setAttribute('alt', $element.dataset.id);
     $projectName.textContent = $element.dataset.project;
-    $projectDescription.textContent = $element.dataset.description;
+    $projectDescription.innerHTML = $element.dataset.description;
     //$technologyList
     $projectLink.setAttribute('href', $element.dataset.link);
   }
@@ -250,10 +250,6 @@ function modalTemplate(){
     $closeX.classList.remove('close-modal');
     $modal.style.animation = "modalOut .8s forwards";
   });
-
-
-
-
 
   function portfolioItemTemplate(results){
     return(
