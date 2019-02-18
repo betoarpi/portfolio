@@ -207,7 +207,7 @@ function modalTemplate(){
     return data;
   }
   const portfolioData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
-  console.log(portfolioData);
+  //console.log(portfolioData);
 
   //Print Modal if the portfolio list exists
   const $portfolioList = document.querySelector('.portfolio-list');
@@ -222,7 +222,7 @@ function modalTemplate(){
   }
 
   const $modal = document.getElementById('modal');
-  const $projectImg = document.querySelector('.featured');
+  const $projectImg = document.querySelector('.featured img');
   const $projectName = document.querySelector('.project-name');
   const $projectDescription = document.querySelector('.project-description');
   const $technologyList = document.querySelector('.technology-list');
@@ -234,7 +234,7 @@ function modalTemplate(){
     $closeX.classList.add('close-modal');
     $modal.style.animation = "modalIn .8s forwards";
     const id = $element.dataset.id;
-    const project = $element.dataset.project;
+    const project = $element.dataset.img;
     console.log(project);
 
     $projectImg.setAttribute('src', $element.dataset.img);
