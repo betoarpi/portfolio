@@ -65,34 +65,31 @@
 /* Animation for showing modal */
   @keyframes modalIn {
     0% {
-      margin: -100% auto 0 auto;
+      transform: translateY(3000px)
     }
     60% {
-      margin: 125px auto 0 auto;
+      transform: translateY(110px)
     }
     75% {
-      margin: -5px auto 0 auto;
-    }
-    90% {
-      margin: 122px auto 0 auto;
+      transform: translateY(140px)
     }
     100% {
-      margin: 120px auto 0 auto;
+      transform: translateY(125px)
     }
   }
   
   /* Animation for closing modal */
   @keyframes modalOut {
     0% {
-      margin: 122px auto 0 auto;
+      transform: translateY(125px)
     }
     60% {
-      margin: -5px auto 0 auto;
+      transform: translateY(140px)
     }
     75% {
-      margin: 125px auto 0 auto;
+      transform: translateY(110px)
     }
     100% {
-      margin: -100% auto 0 auto;
+      transform: translateY(3000px)
     }
   }
