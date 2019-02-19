@@ -65,39 +65,31 @@
 /* Animation for showing modal */
   @keyframes modalIn {
     0% {
-      position: initial;
-      transform: translateY(3000px)
+      transform: translate(-50%, 3000px)
     }
     60% {
-      position: initial;
-      transform: translateY(110px)
+      transform: translate(-50%, 110px)
     }
     75% {
-      position: initial;
-      transform: translateY(140px)
+      transform: translate(-50%, 140px)
     }
     100% {
-      position: initial;
-      transform: translateY(125px)
+      transform: translate(-50%, 125px)
     }
   }
   
   /* Animation for closing modal */
   @keyframes modalOut {
     0% {
-      position: initial;
-      transform: translateY(125px)
+      transform: translate(-50%, 125px)
     }
     60% {
-      position: initial;
-      transform: translateY(140px)
+      transform: translate(-50%, 140px)
     }
     75% {
-      position: initial;
-      transform: translateY(110px)
+      transform: translate(-50%, 110px)
     }
     100% {
-      position: absolute;
-      transform: translateY(3000px)
+      transform: translate(-50%, 3000px)
     }
   }
