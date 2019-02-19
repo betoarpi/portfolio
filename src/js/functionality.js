@@ -258,6 +258,7 @@ if ($portfolioList) {
       $overlay.classList.add('active');
       $closeX.classList.add('close-modal');
       $modal.style.animation = "modalIn .8s forwards";
+      $modal.scrollIntoView();
   
       $projectImg.setAttribute('src', $element.dataset.img);
       $projectImg.setAttribute('alt', $element.dataset.project);
