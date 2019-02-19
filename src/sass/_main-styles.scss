@@ -59,6 +59,7 @@ a {
   color: $primary-color;
   font-family: $title-fonts;
   padding: 0.5em 1em;
+  -webkit-appearance: none;
   @media screen and (max-width: 479px){
     font-size: 0.8em;
   }
