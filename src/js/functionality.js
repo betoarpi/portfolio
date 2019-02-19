@@ -257,7 +257,7 @@ if ($portfolioList) {
     function showModal($element){
       $overlay.classList.add('active');
       $closeX.classList.add('close-modal');
-      $modal.style.animation = "modalIn .8s forwards";
+      $modal.classList.add('active');
       $modal.scrollIntoView();
   
       $projectImg.setAttribute('src', $element.dataset.img);
@@ -271,7 +271,7 @@ if ($portfolioList) {
     $closeX.addEventListener('click', () => {
       $overlay.classList.remove('active');
       $closeX.classList.remove('close-modal');
-      $modal.style.animation = "modalOut .8s forwards";
+      $modal.classList.remove('active');
     });
   
     function portfolioItemTemplate(results){
@@ -293,7 +293,7 @@ if ($portfolioList) {
   
     //Event
     function portfolioModalClick($element){
-      $element.addEventListener('click', () => {
+      $element.addEventListener('click', (event) => {
         event.preventDefault();
         showModal($element);
       });
