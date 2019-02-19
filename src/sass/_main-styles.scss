@@ -85,8 +85,12 @@ a {
   flex: 0 1 500px;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: absolute;
+  top: -3000px;
   &.active {
     margin-top: 120px;
+    position: static;
+    top: initial;
   }
   @media screen and (max-width: 1023px) {
     margin-bottom: 3em;
