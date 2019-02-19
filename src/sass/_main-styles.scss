@@ -85,6 +85,7 @@ a {
   flex: 0 1 500px;
   overflow: hidden;
   transform: translateY(-3000px);
+  position: absolute;
   //transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   &.active {
     margin-top: 120px;
