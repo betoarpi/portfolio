@@ -107,13 +107,13 @@ const $experienceURL = document.querySelector('.experience');
 const $portfolioURL = document.querySelector('.portfolio');
 const $contactURL = document.querySelector('.contact');
 switch (currentURL) {
-  case "/D:/Proyectos/Robby%20Site/experience.html":
+  case "/experience.html":
     document.querySelector('.experience').classList.add('active');
     break;
-  case "/D:/Proyectos/Robby%20Site/portfolio.html":
+  case "/portfolio.html":
     document.querySelector('.portfolio').classList.add('active');
     break;
-  case "/D:/Proyectos/Robby%20Site/contact.html":
+  case "/contact.html":
     document.querySelector('.contact').classList.add('active');
     break;
   default:
