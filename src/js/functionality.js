@@ -223,88 +223,90 @@ function modalTemplate(){
   )
 }
 
+//Print Modal if the portfolio list exists
+const $portfolioList = document.querySelector('.portfolio-list');
 //Render Portfolio
-(async function loadPortfolioData(){
-  async function getPortfolio(url){
-    const response = await fetch(url)
-    const data = await response.json()
-    return data;
-  }
-  const portfolioData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
-  //console.log(portfolioData);
-
-  //Print Modal if the portfolio list exists
-  const $portfolioList = document.querySelector('.portfolio-list');
-  if ($portfolioList) {
-    //Print Modal
-    (function printModal($element) {
-      const $modalOverlay = document.getElementById('overlay');
-      const HTMLString = modalTemplate($element);
-      const modalElement = createTemplate(HTMLString);
-      $modalOverlay.insertBefore(modalElement, $modalOverlay.lastChild);
-    })();
-  }
-
-  const $modal = document.getElementById('modal');
-  const $projectImg = document.querySelector('.featured img');
-  const $projectName = document.querySelector('.project-name');
-  const $projectDescription = document.querySelector('.project-description');
-  const $technologyList = document.querySelector('.technology-list');
-  const $projectLink = document.getElementById('project-link');
-
-  //Show Modal
-  function showModal($element){
-    $overlay.classList.add('active');
-    $closeX.classList.add('close-modal');
-    $modal.style.animation = "modalIn .8s forwards";
-
-    $projectImg.setAttribute('src', $element.dataset.img);
-    $projectImg.setAttribute('alt', $element.dataset.project);
-    $projectName.textContent = $element.dataset.project;
-    $projectDescription.innerHTML = $element.dataset.description;
-    //$technologyList
-    $projectLink.setAttribute('href', $element.dataset.link);
-  }
-
-  $closeX.addEventListener('click', () => {
-    $overlay.classList.remove('active');
-    $closeX.classList.remove('close-modal');
-    $modal.style.animation = "modalOut .8s forwards";
-  });
-
-  function portfolioItemTemplate(results){
-    return(
-      `<a href="#" class="portfolio-item" 
-      data-id="${results.id}"
-      data-img="${results.image}"
-      data-project="${results.project}"
-      data-description="${results.description}"
-      data-link=${results.link}>
-        <figure class="item-thumbnail">
-          <img src="${results.image}" alt="${results.project}">
-          <mark class="caption">${results.project}</mark>
-        </figure>
-        <span class="portfolio-link"></span>
-      </a>`
-    )
-  }
-
-  //Event
-  function portfolioModalClick($element){
-    $element.addEventListener('click', () => {
-      event.preventDefault();
-      showModal($element);
+if ($portfolioList) {
+  (async function loadPortfolioData(){
+    async function getPortfolio(url){
+      const response = await fetch(url)
+      const data = await response.json()
+      return data;
+    }
+    const portfolioData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
+    //console.log(portfolioData);
+  
+    if ($portfolioList) {
+      //Print Modal
+      (function printModal($element) {
+        const $modalOverlay = document.getElementById('overlay');
+        const HTMLString = modalTemplate($element);
+        const modalElement = createTemplate(HTMLString);
+        $modalOverlay.insertBefore(modalElement, $modalOverlay.lastChild);
+      })();
+    }
+  
+    const $modal = document.getElementById('modal');
+    const $projectImg = document.querySelector('.featured img');
+    const $projectName = document.querySelector('.project-name');
+    const $projectDescription = document.querySelector('.project-description');
+    const $technologyList = document.querySelector('.technology-list');
+    const $projectLink = document.getElementById('project-link');
+  
+    //Show Modal
+    function showModal($element){
+      $overlay.classList.add('active');
+      $closeX.classList.add('close-modal');
+      $modal.style.animation = "modalIn .8s forwards";
+  
+      $projectImg.setAttribute('src', $element.dataset.img);
+      $projectImg.setAttribute('alt', $element.dataset.project);
+      $projectName.textContent = $element.dataset.project;
+      $projectDescription.innerHTML = $element.dataset.description;
+      //$technologyList
+      $projectLink.setAttribute('href', $element.dataset.link);
+    }
+  
+    $closeX.addEventListener('click', () => {
+      $overlay.classList.remove('active');
+      $closeX.classList.remove('close-modal');
+      $modal.style.animation = "modalOut .8s forwards";
     });
-  }
   
-  (function renderPortfolio() {
-    $portfolioList.children[0].remove();
-    portfolioData.results.forEach((results) => {
-    const HTMLString = portfolioItemTemplate(results);
-    const portfolioElement = createTemplate(HTMLString);
-    $portfolioList.append(portfolioElement);
-    portfolioModalClick(portfolioElement);
-    })
+    function portfolioItemTemplate(results){
+      return(
+        `<a href="#" class="portfolio-item" 
+        data-id="${results.id}"
+        data-img="${results.image}"
+        data-project="${results.project}"
+        data-description="${results.description}"
+        data-link=${results.link}>
+          <figure class="item-thumbnail">
+            <img src="${results.image}" alt="${results.project}">
+            <mark class="caption">${results.project}</mark>
+          </figure>
+          <span class="portfolio-link"></span>
+        </a>`
+      )
+    }
+  
+    //Event
+    function portfolioModalClick($element){
+      $element.addEventListener('click', () => {
+        event.preventDefault();
+        showModal($element);
+      });
+    }
+    
+    (function renderPortfolio() {
+      $portfolioList.children[0].remove();
+      portfolioData.results.forEach((results) => {
+      const HTMLString = portfolioItemTemplate(results);
+      const portfolioElement = createTemplate(HTMLString);
+      $portfolioList.append(portfolioElement);
+      portfolioModalClick(portfolioElement);
+      })
+    })();
+    
   })();
-  
-})();
+}
