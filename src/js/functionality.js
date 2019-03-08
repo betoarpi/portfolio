@@ -213,9 +213,7 @@ function modalTemplate(){
         <h2 class="project-name">Project Name</h2>
         <div class="project-description"></div>
         <ul class="technology-list">
-        <li><i class="fab fa-html5"></i> <span>HTML5</span></li>
-        <li><i class="fab fa-css3"></i> <span>CSS3</span></li>
-        <li><i class="fab fa-js-square"></i> <span>Javascript</span></li>
+        
         </ul>
         <a href="#" target="_blank" class="button" id="project-link">View Project <i class="fas fa-external-link-square-alt"></i></a>
       </div>
@@ -234,7 +232,7 @@ if ($portfolioList) {
       return data;
     }
     const portfolioData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
-    //console.log(portfolioData);
+    console.log(portfolioData);
   
     if ($portfolioList) {
       //Print Modal
@@ -252,9 +250,28 @@ if ($portfolioList) {
     const $projectDescription = document.querySelector('.project-description');
     const $technologyList = document.querySelector('.technology-list');
     const $projectLink = document.getElementById('project-link');
+
+    //Render Portfolio grid
+    (function renderPortfolio() {
+      $portfolioList.children[0].remove();
+      portfolioData.results.forEach((results) => {
+        const HTMLString = portfolioItemTemplate(results);
+        const portfolioElement = createTemplate(HTMLString);
+        $portfolioList.append(portfolioElement);
+
+        let listHTML = '';
+        let {technology_list} = results;
+        technology_list.forEach(item => {
+          listHTML += `<li><i class="${item.icon}"></i> <span>${item.name}</span></li>`;
+        });
+        let listElement = listHTML;
+        portfolioModalClick(portfolioElement, listElement);
+
+      })
+    })();
   
     //Show Modal
-    function showModal($element){
+    function showModal($element, $listElement){
       $overlay.classList.add('active');
       $closeX.classList.add('close-modal');
       $modal.classList.add('active');
@@ -264,7 +281,7 @@ if ($portfolioList) {
       $projectImg.setAttribute('alt', $element.dataset.project);
       $projectName.textContent = $element.dataset.project;
       $projectDescription.innerHTML = $element.dataset.description;
-      //$technologyList
+      $technologyList.innerHTML = $listElement;
       $projectLink.setAttribute('href', $element.dataset.link);
     }
   
@@ -292,22 +309,12 @@ if ($portfolioList) {
     }
   
     //Event
-    function portfolioModalClick($element){
+    function portfolioModalClick($element, $listElement){
       $element.addEventListener('click', (event) => {
         event.preventDefault();
-        showModal($element);
+        showModal($element, $listElement);
       });
     }
-    
-    (function renderPortfolio() {
-      $portfolioList.children[0].remove();
-      portfolioData.results.forEach((results) => {
-      const HTMLString = portfolioItemTemplate(results);
-      const portfolioElement = createTemplate(HTMLString);
-      $portfolioList.append(portfolioElement);
-      portfolioModalClick(portfolioElement);
-      })
-    })();
     
   })();
 }
