@@ -1,7 +1,7 @@
 {
   "results": [
     {
-      "id": "7",
+      "id": "8",
       "project": "ARLA Design Lab",
       "image": "img/portfolio_arla-design-lab.jpg",
       "description": "<p>This is a work in progress. I'm currently working on the UI/UX Design and Development of ARLA Design Lab's new 2019 website. The coming soon page is up right now. The rest of the website is planned to be launched by late June.</p>",
@@ -34,7 +34,7 @@
       "link": "https://www.arladesignlab.com/"
     },
     {
-      "id": "6",
+      "id": "7",
       "project": "Save the Tigers",
       "image": "img/portfolio_save-tigers-now.jpg",
       "description": "<p>It was very exciting working for the Leonardo DiCaprio's Foundation and the World Wildlife Foundation in this project about a global campaign to save the tigers. I participated as a Frontend Developer at Creative Science Labs.</p> <p>This is a global campaign to raise awareness about how the wild tiger populations declined dramatically in the last 100 years. To know more about this campaign and its success, please <a href='https://www.leonardodicaprio.org/protecting-wild-tigers-in-nepal/' target='_blank'>visit Leonardo DiCaprio Foundation website</a>.</p>",
@@ -61,6 +61,31 @@
         }
       ],
       "link": "https://www.savetigersnow.org/"
+    },
+    {
+      "id": "6",
+      "project": "Biencom",
+      "image": "img/portfolio_biencom.jpg",
+      "description": "<p>I worked on the redesign of Biencom's website for ARLA Design Lab in 2015. I created wireframe concepts to define the layout of the new design direction, designed and presented prototypes with intended functionality in Invision.</p>",
+      "technology_list": [
+        {
+          "name": "Wireframing",
+          "icon": "fas fa-object-group"
+        },
+        {
+          "name": "UI Design",
+          "icon": "fas fa-drafting-compass"
+        },
+        {
+          "name": "Adobe photoshop",
+          "icon": "fab fa-adobe"
+        },
+        {
+          "name": "Invision",
+          "icon": "fab fa-invision"
+        }
+      ],
+      "link": "http://buychapala.com/"
     },
     {
       "id": "5",

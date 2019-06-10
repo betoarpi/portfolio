@@ -231,7 +231,7 @@ if ($portfolioList) {
       return data;
     }
     const portfolioData = await getPortfolio(
-      "https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=7"
+      "https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=8"
     );
     console.log(portfolioData);
 
