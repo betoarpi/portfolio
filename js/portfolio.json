@@ -1,172 +1,209 @@
 {
-  "results":[ {
-    "id": "6",
-    "project": "Save the Tigers",
-    "image": "img/portfolio_save-tigers-now.jpg",
-    "description": "<p>It was very exciting working for the Leonardo DiCaprio's Foundation and the World Wildlife Foundation in this project about a global campaign to save the tigers. I participated as a Frontend Developer at Creative Science Labs.<\/p> <p>This is a global campaign to raise awareness about how the wild tiger populations declined dramatically in the last 100 years. To know more about this campaign and its success, please <a href='https://www.leonardodicaprio.org/protecting-wild-tigers-in-nepal/' target='_blank'>visit Leonardo DiCaprio Foundation website<\/a>.<\/p>",
-    "technology_list": [
-      {
-        "name": "HTML5",
-        "icon": "fab fa-html5"
-      },
-      {
-        "name": "CSS3",
-        "icon": "fab fa-css3"
-      },
-      {
-        "name": "Wordpress",
-        "icon": "fab fa-wordpress"
-      },
-      {
-        "name": "PHP",
-        "icon": "fab fa-php"
-      },
-      {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      }
-    ],
-    "link": "https://www.savetigersnow.org/"
-  },
-  {
-    "id": "5",
-    "project": "School Control",
-    "image": "img/portfolio_schoolcontrol.png",
-    "description": "<p>SchoolControl is an award winner Mexican startup that offers a management and a communication tool for schools and parents. I’ve collaborated with SchoolControl as a frontend developer since they started building their teachers web app a few years back. I have also participated in the continuous improvement plan, working with their team developing new features for the web app.<\/p>",
-    "technology_list": [
-      {
-        "name": "HTML5",
-        "icon": "fab fa-html5"
-      },
-      {
-        "name": "CSS3",
-        "icon": "fab fa-css3"
-      },
-      {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      }
-    ],
-    "link": "http://www.schoolcontrol.com/"
-  },
-  {
-    "id": "4",
-    "project": "Friends of The Global Fight",
-    "image": "img/portfolio_friends-of-the-global-fight.png",
-    "description": "<p>Friends of the Global Fight Against AIDS, Tuberculosis and Malaria advocates for ending these epidemics through U.S. investment in the Global Fund and other global health programs. The challenge we faced at Creative Science was to refresh their online presence with a new website, helping them to have more impact with their audience.<\/p>",
-    "technology_list": [
-      {
-        "name": "HTML5",
-        "icon": "fab fa-html5"
-      },
-      {
-        "name": "CSS3",
-        "icon": "fab fa-css3"
-      },
-      {
-        "name": "Wordpress",
-        "icon": "fab fa-wordpress"
-      },
-      {
-        "name": "PHP",
-        "icon": "fab fa-php"
-      },
-      {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      }
-    ],
-    "link": "https://www.theglobalfight.org/"
-  },
-  {
-    "id": "3",
-    "project": "COMAPROD",
-    "image": "img/portfolio_comaprod.png",
-    "description": "<p>COMAPROD is the Mexican Council for the Accreditation of Design Programs. Stephanie Alcocer, who was the designer and lead of the project, contacted me to collaborate on refreshing this website and the user experience. The old website was built in a deprecated CMS and was hard to maintain. The result was a more user-friendly platform for both, administrators and users.<\/p>",
-    "technology_list": [
-      {
-        "name": "HTML5",
-        "icon": "fab fa-html5"
-      },
-      {
-        "name": "CSS3",
-        "icon": "fab fa-css3"
-      },
-      {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      },
-      {
-        "name": "Wordpress",
-        "icon": "fab fa-wordpress"
-      },
-      {
-        "name": "PHP",
-        "icon": "fab fa-php"
-      }
-    ],
-    "link": "http://www.comaprod.com"
-  },
-  {
-    "id": "2",
-    "project": "Medrenlogic",
-    "image": "img/portfolio_medrenlogic.png",
-    "description": "<p>Medrenlogic is an IT agency that helps other companies grow and transition to the digital era. I have collaborated with Medrenlogic in many projects, their web design and development was one of them.<\/p>",
-    "technology_list": [
-      {
-        "name": "Web Design",
-        "icon": "fas fa-pencil-ruler"
-      },
-      {
-        "name": "HTML5",
-        "icon": "fab fa-html5"
-      },
-      {
-        "name": "CSS3",
-        "icon": "fab fa-css3"
-      },
-      {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      },
-      {
-        "name": "Wordpress",
-        "icon": "fab fa-wordpress"
-      },
-      {
-        "name": "PHP",
-        "icon": "fab fa-php"
-      }
-    ],
-    "link": "http://www.medrenlogic.com.mx/"
-  },
-  {
-    "id": "1",
-    "project": "Optoro",
-    "image": "img/portfolio_optoro.png",
-    "description": "<p>Optoro is a software platform that helps retailers find the next best home for their returned and excess inventory. This was a challenging project due to the variety of web components and content. I developed the Wordpress theme as part of the Creative Science Labs team.<\/p>",
-    "technology_list": [
-      {
-        "name": "HTML5",
-        "icon": "fab fa-html5"
-      },
-      {
-        "name": "CSS3",
-        "icon": "fab fa-css3"
-      },
-      {
-        "name": "Javascript",
-        "icon": "fab fa-js-square"
-      },
-      {
-        "name": "Wordpress",
-        "icon": "fab fa-wordpress"
-      }
-    ],
-    "link": "https://www.optoro.com/"
-  }
+  "results": [
+    {
+      "id": "7",
+      "project": "ARLA Design Lab",
+      "image": "img/portfolio_arla-design-lab.jpg",
+      "description": "<p>This is a work in progress. I'm currently working on the UI/UX Design and Development of ARLA Design Lab's new 2019 website. The coming soon page is up right now. The rest of the website is planned to be launched by late June.</p>",
+      "technology_list": [
+        {
+          "name": "UI Design",
+          "icon": "fab fa-drafting-compass"
+        },
+        {
+          "name": "Adobe XD",
+          "icon": "fab fa-adobe"
+        },
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        }
+      ],
+      "link": "https://www.arladesignlab.com/"
+    },
+    {
+      "id": "6",
+      "project": "Save the Tigers",
+      "image": "img/portfolio_save-tigers-now.jpg",
+      "description": "<p>It was very exciting working for the Leonardo DiCaprio's Foundation and the World Wildlife Foundation in this project about a global campaign to save the tigers. I participated as a Frontend Developer at Creative Science Labs.</p> <p>This is a global campaign to raise awareness about how the wild tiger populations declined dramatically in the last 100 years. To know more about this campaign and its success, please <a href='https://www.leonardodicaprio.org/protecting-wild-tigers-in-nepal/' target='_blank'>visit Leonardo DiCaprio Foundation website</a>.</p>",
+      "technology_list": [
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        },
+        {
+          "name": "PHP",
+          "icon": "fab fa-php"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        }
+      ],
+      "link": "https://www.savetigersnow.org/"
+    },
+    {
+      "id": "5",
+      "project": "School Control",
+      "image": "img/portfolio_schoolcontrol.png",
+      "description": "<p>SchoolControl is an award winner Mexican startup that offers a management and a communication tool for schools and parents. I’ve collaborated with SchoolControl as a frontend developer since they started building their teachers web app a few years back. I have also participated in the continuous improvement plan, working with their team developing new features for the web app.</p>",
+      "technology_list": [
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        }
+      ],
+      "link": "http://www.schoolcontrol.com/"
+    },
+    {
+      "id": "4",
+      "project": "Friends of The Global Fight",
+      "image": "img/portfolio_friends-of-the-global-fight.png",
+      "description": "<p>Friends of the Global Fight Against AIDS, Tuberculosis and Malaria advocates for ending these epidemics through U.S. investment in the Global Fund and other global health programs. The challenge we faced at Creative Science was to refresh their online presence with a new website, helping them to have more impact with their audience.</p>",
+      "technology_list": [
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        },
+        {
+          "name": "PHP",
+          "icon": "fab fa-php"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        }
+      ],
+      "link": "https://www.theglobalfight.org/"
+    },
+    {
+      "id": "3",
+      "project": "COMAPROD",
+      "image": "img/portfolio_comaprod.png",
+      "description": "<p>COMAPROD is the Mexican Council for the Accreditation of Design Programs. Stephanie Alcocer, who was the designer and lead of the project, contacted me to collaborate on refreshing this website and the user experience. The old website was built in a deprecated CMS and was hard to maintain. The result was a more user-friendly platform for both, administrators and users.</p>",
+      "technology_list": [
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        },
+        {
+          "name": "PHP",
+          "icon": "fab fa-php"
+        }
+      ],
+      "link": "http://www.comaprod.com"
+    },
+    {
+      "id": "2",
+      "project": "Medrenlogic",
+      "image": "img/portfolio_medrenlogic.png",
+      "description": "<p>Medrenlogic is an IT agency that helps other companies grow and transition to the digital era. I have collaborated with Medrenlogic in many projects, their web design and development was one of them.</p>",
+      "technology_list": [
+        {
+          "name": "Web Design",
+          "icon": "fas fa-pencil-ruler"
+        },
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        },
+        {
+          "name": "PHP",
+          "icon": "fab fa-php"
+        }
+      ],
+      "link": "http://www.medrenlogic.com.mx/"
+    },
+    {
+      "id": "1",
+      "project": "Optoro",
+      "image": "img/portfolio_optoro.png",
+      "description": "<p>Optoro is a software platform that helps retailers find the next best home for their returned and excess inventory. This was a challenging project due to the variety of web components and content. I developed the Wordpress theme as part of the Creative Science Labs team.</p>",
+      "technology_list": [
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        }
+      ],
+      "link": "https://www.optoro.com/"
+    }
   ],
   "info": {
-    "seed": "5bf0f3270f253c82", "results": 6, "page": 1, "version": "1"
+    "seed": "5bf0f3270f253c82",
+    "results": 6,
+    "page": 1,
+    "version": "1"
   }
 }
