@@ -1,27 +1,22 @@
 //Loader icon present in various pages waitin for data to get loaded
-const $loader = document.querySelector('.loader');
+const $loader = document.querySelector(".loader");
 
 //Templates
-function overlayTemplate(){
-  return(
-    `<div id="overlay" class="overlay">
+function overlayTemplate() {
+  return `<div id="overlay" class="overlay">
       <a href="#" id="close"><i class="fas fa-times-circle"></i></a>
     </div>
-    <!-- //overlay -->`
-  )
+    <!-- //overlay -->`;
 }
 
-function menuContainerTemplate(){
-  return(
-    `<div class="menu-container" id="menu-mobile-container">
+function menuContainerTemplate() {
+  return `<div class="menu-container" id="menu-mobile-container">
       <div class="shape-container"><img src="src/img/organic-shape.svg" alt=""></div>
-    </div>`
-  )
+    </div>`;
 }
 
-function menuTemplate(){
-  return(
-    `<nav class="menu-mobile main-navigation">
+function menuTemplate() {
+  return `<nav class="menu-mobile main-navigation">
         <ul>
           <li class="who-am-i">
               <span class="name">Rob Arroyo</span>
@@ -34,8 +29,7 @@ function menuTemplate(){
         </ul>
         <a href="#" class="mobile-menu-trigger" id="mobile-menu-trigger"><i class="fas fa-bars"></i></a>
       </nav>
-      <!-- //main navigation -->`
-  )
+      <!-- //main navigation -->`;
 }
 
 function createTemplate(HTMLString) {
@@ -46,25 +40,25 @@ function createTemplate(HTMLString) {
 
 //Print the overlay an menu templates and then bring it to the DOM
 (function printOverlay() {
-  const $body = document.getElementById('body');
+  const $body = document.getElementById("body");
   const HTMLString = overlayTemplate();
   const overlayElement = createTemplate(HTMLString);
   $body.insertBefore(overlayElement, $body.lastChild);
 })();
-const $overlay = document.getElementById('overlay');
-const $closeX = document.getElementById('close');
+const $overlay = document.getElementById("overlay");
+const $closeX = document.getElementById("close");
 
 (function printDesktopMenu() {
   const HTMLString = menuTemplate();
   const menuElement = createTemplate(HTMLString);
-  const $containerCard = document.getElementById('container-card');
+  const $containerCard = document.getElementById("container-card");
   $containerCard.insertBefore(menuElement, $containerCard.childNodes[0]);
 })();
 
 function printMenuContainer() {
   const HTMLString = menuContainerTemplate();
   const menuContainerElement = createTemplate(HTMLString);
-  const $menuOverlay = document.getElementById('overlay');
+  const $menuOverlay = document.getElementById("overlay");
   $menuOverlay.insertBefore(menuContainerElement, $menuOverlay.childNodes[0]);
 }
 
@@ -72,91 +66,96 @@ function printMenuContainer() {
   printMenuContainer();
   const HTMLString = menuTemplate();
   const mobileMenuElement = createTemplate(HTMLString);
-  const $menuMobileContainer = document.getElementById('menu-mobile-container');
-  $menuMobileContainer.insertBefore(mobileMenuElement, $menuMobileContainer.childNodes[0]);
+  const $menuMobileContainer = document.getElementById("menu-mobile-container");
+  $menuMobileContainer.insertBefore(
+    mobileMenuElement,
+    $menuMobileContainer.childNodes[0]
+  );
 })();
 
 //Mobile Menu Functionality
 (function mobileMenu() {
   //Get DOM Elements
-  const $menuContainer = document.getElementById('menu-mobile-container');
-  const $menuTrigger = document.querySelector('#mobile-menu-trigger');
-  const $overlay = document.getElementById('overlay')
+  const $menuContainer = document.getElementById("menu-mobile-container");
+  const $menuTrigger = document.querySelector("#mobile-menu-trigger");
+  const $overlay = document.getElementById("overlay");
 
   $menuTrigger.addEventListener("click", function(event) {
     event.preventDefault();
     //Set the new css classes
-    $overlay.classList.add('active');
-    $menuContainer.classList.add('active');
+    $overlay.classList.add("active");
+    $menuContainer.classList.add("active");
   });
-  
+
   //Get DOM Element
-  const $closeX = document.getElementById('close');
+  const $closeX = document.getElementById("close");
   $closeX.addEventListener("click", function(event) {
     event.preventDefault();
     //Set the new css classes
-    $overlay.classList.remove('active');
-    $menuContainer.classList.remove('active');
-  })
+    $overlay.classList.remove("active");
+    $menuContainer.classList.remove("active");
+  });
 })();
 
 //Assign active class to menu elements
 const currentURL = document.location.pathname;
-const $meURL = document.querySelector('.me');
-const $experienceURL = document.querySelector('.experience');
-const $portfolioURL = document.querySelector('.portfolio');
-const $contactURL = document.querySelector('.contact');
+const $meURL = document.querySelector(".me");
+const $experienceURL = document.querySelector(".experience");
+const $portfolioURL = document.querySelector(".portfolio");
+const $contactURL = document.querySelector(".contact");
 switch (currentURL) {
   case "/experience.html":
-    document.querySelector('.experience').classList.add('active');
+    document.querySelector(".experience").classList.add("active");
     break;
   case "/portfolio.html":
-    document.querySelector('.portfolio').classList.add('active');
+    document.querySelector(".portfolio").classList.add("active");
     break;
   case "/contact.html":
-    document.querySelector('.contact').classList.add('active');
+    document.querySelector(".contact").classList.add("active");
     break;
   default:
-    $meURL.classList.add('active');
+    $meURL.classList.add("active");
     break;
 }
 
 //Experience
-(async function loadExperience(){
-  async function getExperience(url){
-    const response = await fetch(url)
-    const data = await response.json()
+(async function loadExperience() {
+  async function getExperience(url) {
+    const response = await fetch(url);
+    const data = await response.json();
     return data;
   }
-  const experienceList = await getExperience('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json?results=6');
+  const experienceList = await getExperience(
+    "https://raw.githubusercontent.com/betoarpi/portfolio/master/js/experience.json?results=6"
+  );
 
   //Job items selector
-  const $jobList = document.querySelector('.job-list');
+  const $jobList = document.querySelector(".job-list");
   if ($jobList) {
     if ($loader) {
       $jobList.removeChild($loader);
-    } 
+    }
   }
 
   //Template
-  function jobItemTemplate(results){
-    return(
-      `<article class="job-item" id="${results.id}">
+  function jobItemTemplate(results) {
+    return `<article class="job-item" id="${results.id}">
         <figure class="company-logo">
           <img src="${results.logo}" alt="${results.name} logo">
         </figure>
         <div class="job-information">
             <h3 class="job-name">${results.name}</h3>
             <h4 class="job-title">${results.position}</h4>
-            <span class="job-location job-date-range">${results.location} | ${results.daterange}</span>
+            <span class="job-location job-date-range">${results.location} | ${
+      results.daterange
+    }</span>
         </div>
-      </article>`
-    )
+      </article>`;
   }
 
   //Apply Template
   if ($jobList) {
-    experienceList.results.forEach((results) => {
+    experienceList.results.forEach(results => {
       const HTMLString = jobItemTemplate(results);
       const experienceElement = createTemplate(HTMLString);
       $jobList.append(experienceElement);
@@ -165,36 +164,38 @@ switch (currentURL) {
 })();
 
 //Skills
-(async function loadSkills(){
+(async function loadSkills() {
   async function getSkills(url) {
-    const response = await fetch(url)
-    const data = await response.json()
+    const response = await fetch(url);
+    const data = await response.json();
     return data;
   }
-  const skillListData = await getSkills('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/skills.json?results=11');
+  const skillListData = await getSkills(
+    "https://raw.githubusercontent.com/betoarpi/portfolio/master/js/skills.json?results=11"
+  );
 
   //Skill item selector
-  const $skillList = document.querySelector('.skill-list');
-  const $skillsLoader = document.querySelector('.skills-loader');
+  const $skillList = document.querySelector(".skill-list");
+  const $skillsLoader = document.querySelector(".skills-loader");
   if ($skillList) {
     if ($skillsLoader) {
       $skillList.removeChild($skillsLoader);
     }
-  }  
+  }
 
   //Template
-  function skillItemTemplate(results){
-    return(
-      `<div class="skill-item">
+  function skillItemTemplate(results) {
+    return `<div class="skill-item">
         <i class="${results.icon}"></i>
-        <span class="skill-level"><span class="skill-bar" style="width: ${results.level}"></span></span>
+        <span class="skill-level"><span class="skill-bar" style="width: ${
+          results.level
+        }"></span></span>
         <p>${results.name}</p>
-      </div>`
-    )
+      </div>`;
   }
 
   //Apply Template
-  skillListData.results.forEach((results) => {
+  skillListData.results.forEach(results => {
     const HTMLString = skillItemTemplate(results);
     const skillsElement = createTemplate(HTMLString);
     if ($skillList) {
@@ -203,9 +204,8 @@ switch (currentURL) {
   });
 })();
 
-function modalTemplate(){
-  return(
-    `<div class="portfolio-modal modal" id="modal">
+function modalTemplate() {
+  return `<div class="portfolio-modal modal" id="modal">
       <figure class="featured">
         <img src="img/portfolio_save-tigers-now.jpg" alt="Nombre de Proyecto">
       </figure>
@@ -217,83 +217,84 @@ function modalTemplate(){
         </ul>
         <a href="#" target="_blank" class="button" id="project-link">View Project <i class="fas fa-external-link-square-alt"></i></a>
       </div>
-    </div>`
-  )
+    </div>`;
 }
 
 //Print Modal if the portfolio list exists
-const $portfolioList = document.querySelector('.portfolio-list');
+const $portfolioList = document.querySelector(".portfolio-list");
 //Render Portfolio
 if ($portfolioList) {
-  (async function loadPortfolioData(){
-    async function getPortfolio(url){
-      const response = await fetch(url)
-      const data = await response.json()
+  (async function loadPortfolioData() {
+    async function getPortfolio(url) {
+      const response = await fetch(url);
+      const data = await response.json();
       return data;
     }
-    const portfolioData = await getPortfolio('https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=6');
+    const portfolioData = await getPortfolio(
+      "https://raw.githubusercontent.com/betoarpi/portfolio/master/js/portfolio.json?results=7"
+    );
     console.log(portfolioData);
-  
+
     if ($portfolioList) {
       //Print Modal
       (function printModal($element) {
-        const $modalOverlay = document.getElementById('overlay');
+        const $modalOverlay = document.getElementById("overlay");
         const HTMLString = modalTemplate($element);
         const modalElement = createTemplate(HTMLString);
         $modalOverlay.insertBefore(modalElement, $modalOverlay.lastChild);
       })();
     }
-  
-    const $modal = document.getElementById('modal');
-    const $projectImg = document.querySelector('.featured img');
-    const $projectName = document.querySelector('.project-name');
-    const $projectDescription = document.querySelector('.project-description');
-    const $technologyList = document.querySelector('.technology-list');
-    const $projectLink = document.getElementById('project-link');
+
+    const $modal = document.getElementById("modal");
+    const $projectImg = document.querySelector(".featured img");
+    const $projectName = document.querySelector(".project-name");
+    const $projectDescription = document.querySelector(".project-description");
+    const $technologyList = document.querySelector(".technology-list");
+    const $projectLink = document.getElementById("project-link");
 
     //Render Portfolio grid
     (function renderPortfolio() {
       $portfolioList.children[0].remove();
-      portfolioData.results.forEach((results) => {
+      portfolioData.results.forEach(results => {
         const HTMLString = portfolioItemTemplate(results);
         const portfolioElement = createTemplate(HTMLString);
         $portfolioList.append(portfolioElement);
 
-        let listHTML = '';
-        let {technology_list} = results;
+        let listHTML = "";
+        let { technology_list } = results;
         technology_list.forEach(item => {
-          listHTML += `<li><i class="${item.icon}"></i> <span>${item.name}</span></li>`;
+          listHTML += `<li><i class="${item.icon}"></i> <span>${
+            item.name
+          }</span></li>`;
         });
         let listElement = listHTML;
         portfolioModalClick(portfolioElement, listElement);
-
-      })
+      });
     })();
-  
+
     //Show Modal
-    function showModal($element, $listElement){
-      $overlay.classList.add('active');
-      $closeX.classList.add('close-modal');
-      $modal.classList.add('active');
+    function showModal($element, $listElement) {
+      $overlay.classList.add("active");
+      $closeX.classList.add("close-modal");
+      $modal.classList.add("active");
       $modal.scrollIntoView();
-  
-      $projectImg.setAttribute('src', $element.dataset.img);
-      $projectImg.setAttribute('alt', $element.dataset.project);
+
+      $projectImg.setAttribute("src", $element.dataset.img);
+      $projectImg.setAttribute("alt", $element.dataset.project);
       $projectName.textContent = $element.dataset.project;
       $projectDescription.innerHTML = $element.dataset.description;
       $technologyList.innerHTML = $listElement;
-      $projectLink.setAttribute('href', $element.dataset.link);
+      $projectLink.setAttribute("href", $element.dataset.link);
     }
-  
-    $closeX.addEventListener('click', () => {
-      $overlay.classList.remove('active');
-      $closeX.classList.remove('close-modal');
-      $modal.classList.remove('active');
+
+    $closeX.addEventListener("click", () => {
+      $overlay.classList.remove("active");
+      $closeX.classList.remove("close-modal");
+      $modal.classList.remove("active");
     });
-  
-    function portfolioItemTemplate(results){
-      return(
-        `<a href="#" class="portfolio-item" 
+
+    function portfolioItemTemplate(results) {
+      return `<a href="#" class="portfolio-item" 
         data-id="${results.id}"
         data-img="${results.image}"
         data-project="${results.project}"
@@ -304,17 +305,15 @@ if ($portfolioList) {
             <mark class="caption">${results.project}</mark>
           </figure>
           <span class="portfolio-link"></span>
-        </a>`
-      )
+        </a>`;
     }
-  
+
     //Event
-    function portfolioModalClick($element, $listElement){
-      $element.addEventListener('click', (event) => {
+    function portfolioModalClick($element, $listElement) {
+      $element.addEventListener("click", event => {
         event.preventDefault();
         showModal($element, $listElement);
       });
     }
-    
   })();
 }
