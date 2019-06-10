@@ -1,6 +1,6 @@
 .container-card {
   background: $complementary-color;
-  box-shadow: rgba(0,0,0,0.2) 0.8em 0.8em 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0.8em 0.8em 0px;
   //@include border-gradient(-35deg, darken($second-gradient-color, 10%), darken($primary-color, 10%), 4px)
   border-radius: 10px 70px;
   display: flex;
@@ -57,7 +57,7 @@
   display: flex;
   font-size: 22em;
   margin: 0 -80px 0 20px;
-  text-shadow: rgba(0,0,0,0.1) 20px 20px 0px;
+  text-shadow: rgba(0, 0, 0, 0.1) 20px 20px 0px;
   @media screen and (max-width: 1023px) {
     //justify-content: flex-end;
     align-self: flex-end;
