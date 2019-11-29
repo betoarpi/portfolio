@@ -1,6 +1,43 @@
 {
   "results": [
     {
+      "id": "9",
+      "project": "Sherman Wealth Management",
+      "image": "img/portfolio_arla-design-lab.jpg",
+      "description": "<p>This is a development in progress. It'll be a Headless CMS with ReactJs, Gatsby and WordPress. I also designed the new website interface.</p>",
+      "technology_list": [
+        {
+          "name": "UI Design",
+          "icon": "fas fa-drafting-compass"
+        },
+        {
+          "name": "Adobe XD",
+          "icon": "fab fa-adobe"
+        },
+        {
+          "name": "HTML5",
+          "icon": "fab fa-html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "fab fa-css3"
+        },
+        {
+          "name": "Wordpress",
+          "icon": "fab fa-wordpress"
+        },
+        {
+          "name": "ReactJs",
+          "icon": "fab fa-react"
+        },
+        {
+          "name": "Javascript",
+          "icon": "fab fa-js-square"
+        }
+      ],
+      "link": "https://www.shermanwealth.com/"
+    },
+    {
       "id": "8",
       "project": "ARLA Design Lab",
       "image": "img/portfolio_arla-design-lab.jpg",
