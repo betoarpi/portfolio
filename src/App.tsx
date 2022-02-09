@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement } from "react";
+import GlobalFonts from "./theme/globalStyles";
+import { Routes, Route } from "react-router-dom";
+import { AppContainer, InnerContainer, Wrapper } from "./theme/theme";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import About from "./components/About";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
 
-function App() {
+const App = (): ReactElement => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <GlobalFonts />
+      <Wrapper>
+        <Header />
+
+        <InnerContainer>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about-me" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </InnerContainer>
+      </Wrapper>
+    </AppContainer>
   );
-}
+};
 
 export default App;
