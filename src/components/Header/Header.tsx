@@ -1,30 +1,68 @@
 import * as H from "./styles";
-// @ts-ignore
-import { ReactComponent as BoltIcon } from "../../theme/icons/bolt.svg";
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHamburger, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link, useLocation } from "react-router-dom";
+import Logo from "../Logo";
+import { useCallback, useState } from "react";
+
+const WIDTH = window.innerWidth;
 
 const Header = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+
+  const location = useLocation();
+
+  const isMobile = WIDTH < 768;
+
+  const handleShowMobileMenu = useCallback(() => {
+    console.log("show menu");
+    setShowMobileMenu(true);
+  }, []);
+
+  const handleCloseMobileMenu = useCallback(() => {
+    console.log("close menu");
+    setShowMobileMenu(false);
+  }, []);
+
   return (
     <H.Header>
-      <H.Logo>
-        <Link to="/">
-          <BoltIcon />
-          Rob Arroyo
-        </Link>
-      </H.Logo>
-      <H.Navigation>
-        <li>
-          <Link to="/about-me">
+      <Logo />
+      <H.MobileMenuIcon onClick={handleShowMobileMenu}>
+        <FontAwesomeIcon icon={faHamburger} size="lg" />
+      </H.MobileMenuIcon>
+      {showMobileMenu && (
+        <H.CloseIcon onClick={handleCloseMobileMenu}>
+          <FontAwesomeIcon icon={faTimes} size="2x" />
+        </H.CloseIcon>
+      )}
+      <H.Navigation className={showMobileMenu ? "mobile-menu-active" : ""}>
+        <li className={location.pathname === "/about-me" ? "active" : ""}>
+          <Link
+            to="/about-me"
+            onClick={() => {
+              isMobile && handleCloseMobileMenu();
+            }}
+          >
             <span>About me</span>
           </Link>
         </li>
-        <li>
-          <Link to="/portfolio">
+        <li className={location.pathname === "/portfolio" ? "active" : ""}>
+          <Link
+            to="/portfolio"
+            onClick={() => {
+              isMobile && handleCloseMobileMenu();
+            }}
+          >
             <span>Portfolio</span>
           </Link>
         </li>
-        <li>
-          <Link to="/contact">
+        <li className={location.pathname === "/contact" ? "active" : ""}>
+          <Link
+            to="/contact"
+            onClick={() => {
+              isMobile && handleCloseMobileMenu();
+            }}
+          >
             <span>Contact</span>
           </Link>
         </li>

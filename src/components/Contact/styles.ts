@@ -29,6 +29,15 @@ export const FormRow = styled.div`
   display: flex;
   gap: 4rem;
   margin-bottom: 1rem;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+
+    > button {
+      flex: initial;
+    }
+  }
 `;
 
 export const FormCol = styled.div`

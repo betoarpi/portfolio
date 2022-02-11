@@ -19,6 +19,7 @@ type MyFormValues = {
 const Contact = (): ReactElement => {
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const initialValues: MyFormValues = {
     name: "",
@@ -32,6 +33,7 @@ const Contact = (): ReactElement => {
     values: MyFormValues,
     actions: FormikHelpers<MyFormValues>
   ) => {
+    setIsLoading(true);
     try {
       emailjs
         .send(
@@ -47,6 +49,7 @@ const Contact = (): ReactElement => {
           setTimeout(() => {
             setSuccess(false);
           }, 5000);
+          setIsLoading(false);
         });
     } catch (error) {
       console.error({ error });
@@ -54,6 +57,7 @@ const Contact = (): ReactElement => {
       setTimeout(() => {
         setError(false);
       }, 5000);
+      setIsLoading(false);
       actions.setSubmitting(false);
     }
   };
@@ -155,7 +159,7 @@ const Contact = (): ReactElement => {
             )}
 
             <C.FormRow>
-              <Submit label="Submit" type="submit" />
+              <Submit label="Submit" type="submit" isLoading={isLoading} />
             </C.FormRow>
           </Form>
         </Formik>
