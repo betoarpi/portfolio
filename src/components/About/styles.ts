@@ -229,6 +229,7 @@ export const SkillsIcon = styled.div<SkillIconProps>`
 
   > svg {
     height: 32px;
+    mix-blend-mode: color-burn;
     width: 32px !important;
   }
 `;

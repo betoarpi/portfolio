@@ -30,12 +30,12 @@ const Header = () => {
       <H.MobileMenuIcon onClick={handleShowMobileMenu}>
         <FontAwesomeIcon icon={faHamburger} size="lg" />
       </H.MobileMenuIcon>
-      {showMobileMenu && (
-        <H.CloseIcon onClick={handleCloseMobileMenu}>
-          <FontAwesomeIcon icon={faTimes} size="2x" />
-        </H.CloseIcon>
-      )}
       <H.Navigation className={showMobileMenu ? "mobile-menu-active" : ""}>
+        {showMobileMenu && (
+          <H.CloseIcon onClick={handleCloseMobileMenu}>
+            <FontAwesomeIcon icon={faTimes} size="1x" />
+          </H.CloseIcon>
+        )}
         <li className={location.pathname === "/about-me" ? "active" : ""}>
           <Link
             to="/about-me"

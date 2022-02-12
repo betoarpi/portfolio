@@ -67,20 +67,23 @@ export const Navigation = styled.ul`
   }
 
   @media only screen and (max-width: 767px) {
-    display: none;
+    align-items: center;
+    background: ${colors.neutral.neutral100};
+    border-right: 1rem solid ${colors.secondary.secondary400};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    transform: translateX(-150vw);
+    transition: all 500ms ease-in-out;
+    width: 100vw;
+    z-index: 100;
 
     &.mobile-menu-active {
-      align-items: center;
-      background: ${colors.neutral.neutral100};
-      bottom: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 100;
+      transform: translateX(0);
 
       li {
         font-size: 2rem;
@@ -111,9 +114,11 @@ export const MobileMenuIcon = styled.div`
   }
 `;
 
-export const CloseIcon = styled.div`
+export const CloseIcon = styled.li`
   cursor: pointer;
+  right: 1rem;
   position: absolute;
+  top: 1.5rem;
   z-index: 110;
 
   svg {
