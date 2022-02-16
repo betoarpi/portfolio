@@ -35,8 +35,14 @@ export const Intro = styled.div`
   }
 `;
 
-export const ImgContainer = styled.div`
-  background: ${colors.neutral.neutral200};
+interface ImgContainerProps {
+  image: string;
+}
+
+export const ImgContainer = styled.div<ImgContainerProps>`
+  background: ${colors.secondary.secondary200};
+  background-image: url(${(props) => props.image});
+  background-size: cover;
   border-radius: 50%;
   display: flex;
   height: 450px;

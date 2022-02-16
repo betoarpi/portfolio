@@ -1,4 +1,6 @@
 import * as H from "./styles";
+// @ts-ignore
+import RobImg from "../../theme/images/rob.png";
 
 const Home = () => {
   return (
@@ -7,7 +9,7 @@ const Home = () => {
         <h3>Hello 👋 I'm Rob Arroyo</h3>
         <h1>I'm a Mobile Software Engineer with a background in UI Design</h1>
       </H.Intro>
-      <H.ImgContainer />
+      <H.ImgContainer image={RobImg} />
     </H.Container>
   );
 };

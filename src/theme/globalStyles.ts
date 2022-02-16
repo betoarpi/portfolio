@@ -122,4 +122,9 @@ export default createGlobalStyle`
     ::selection {
         background: ${colors.secondary.secondary200};
     }
+
+    mark {
+        background-color: ${colors.secondary.secondary200};
+        color: ${colors.neutral.neutral700};
+    }
 `;

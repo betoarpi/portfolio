@@ -20,16 +20,21 @@ const About = (): ReactElement => {
             Whether is designing them or developing them, I've been always
             interested in creating UI. Today I create software for mobile
             experiences on the two major mobile platforms, but I have special
-            interest in iOS. On my spare time I also host a podcast for Frontend
-            Developers, called{" "}
-            <a
-              href="https://vainillapodcast.fm"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Vainilla Podcast
-            </a>
-            🎙
+            interest in iOS.
+          </p>
+          <p>
+            <mark>
+              On my spare time I also host a podcast for Frontend Developers,
+              called{" "}
+              <a
+                href="https://vainillapodcast.fm"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Vainilla Podcast
+              </a>
+              🎙
+            </mark>
           </p>
         </div>
       </A.Intro>
@@ -73,13 +78,15 @@ const About = (): ReactElement => {
         </div>
         <div>
           <img
-            src={require("../../theme/images/about-rob-1.jpeg")}
+            src={require("../../theme/images/about-rob-1.png")}
             alt="Rob in computer"
           />
 
           <img
-            src={require("../../theme/images/about-rob-2.jpeg")}
+            src={require("../../theme/images/about-rob-2.jpg")}
             alt="Rob in computer"
+            height={600}
+            style={{ objectFit: "cover" }}
           />
         </div>
       </A.MyStory>

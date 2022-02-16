@@ -20,7 +20,7 @@ export const Intro = styled.div`
 `;
 
 export const ImgContainer = styled.div`
-  background-image: url(${require("../../theme/images/about-rob.jpeg")});
+  background-image: url(${require("../../theme/images/about-rob.jpg")});
   background-size: cover;
   border-radius: 2rem;
   display: flex;
