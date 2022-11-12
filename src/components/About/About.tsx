@@ -1,12 +1,14 @@
-import { ReactElement } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as A from "./styles";
+
 import {
   faExternalLinkAlt,
   faSwatchbook,
   faTerminal,
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
-import * as A from "./styles";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ReactElement } from "react";
 import { colors } from "../../theme/theme";
 
 const About = (): ReactElement => {
@@ -95,6 +97,29 @@ const About = (): ReactElement => {
         <A.CardGid>
           <A.Card>
             <A.CardHeader
+              href="https://rooam.co/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <A.CardLogo
+                src={require("../../theme/images/experience/rooam.png")}
+              />
+              Rooam
+              <FontAwesomeIcon icon={faExternalLinkAlt} />
+            </A.CardHeader>
+            <A.CardHeading>
+              <h3>Frontend Software Engineer</h3>
+              <span>Oct 2022 - Present</span>
+            </A.CardHeading>
+            <div>
+              <p>
+                I'm currently working at Rooam creating web-based solutions for
+                a faster, safer way for guests to pay with no extra hardware.
+              </p>
+            </div>
+          </A.Card>
+          <A.Card>
+            <A.CardHeader
               href="https://summari.com"
               target="_blank"
               rel="noreferrer"
@@ -107,12 +132,12 @@ const About = (): ReactElement => {
             </A.CardHeader>
             <A.CardHeading>
               <h3>Mobile Software Engineer</h3>
-              <span>May 2021 - Present</span>
+              <span>May 2021 - Sept 2022</span>
             </A.CardHeading>
             <div>
               <p>
-                I'm currently creating Android and iOS mobile apps. I also
-                collaborate to maintain and improve web and chrome extension
+                I worked at Summari creating Android and iOS mobile apps. I also
+                collaborated to maintain and improve web and chrome extension
                 apps.
               </p>
             </div>
