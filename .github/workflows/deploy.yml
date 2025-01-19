@@ -51,7 +51,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm install
         env:
           CI: ""
 
@@ -69,7 +69,6 @@ jobs:
 
   deploy:
     needs: [version, build]
-
     runs-on: ubuntu-latest
 
     environment:
