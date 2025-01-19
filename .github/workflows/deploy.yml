@@ -68,7 +68,8 @@ jobs:
           path: build
 
   deploy:
-    needs: [version]
+    needs: [version, build]
+
     runs-on: ubuntu-latest
 
     environment:
@@ -89,10 +90,3 @@ jobs:
           export OUTPUT=$(npx wrangler pages publish build --branch=main --project-name=robarroyo --commit-message=${{ needs.version.outputs.deploy_message }})
           export URL=$(echo $OUTPUT | grep -Eo 'https://[^ >]+' | head -1)
           echo "url=$URL" >> $GITHUB_OUTPUT
-
-      - name: Upload Sentry Source Maps
-        id: sentry
-        if: success()
-        run: |
-          npm install @sentry/cli
-          npx sentry-cli releases files ${{ needs.version.outputs.deploy_version }} upload-sourcemaps -rewrite ./build --url-prefix '~/static/js'
