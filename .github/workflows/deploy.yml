@@ -1,34 +1,171 @@
-name: Deploy to Cloudflare Pages
+name: ROOAMPAY - Deploy Production
 
 on:
   workflow_dispatch:
   push:
     tags: ["v*.*.*"]
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - uses: actions/checkout@v4
+env:
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+jobs:
+  version:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: rooampay-production
+
+    outputs:
+      deploy_version: ${{ steps.vars.outputs.deploy_version }}
+      deploy_message: ${{ steps.vars.outputs.deploy_message }}
+
+    steps:
+      - name: Variables
+        id: vars
+        run: |
+          export tmp_version=$(echo production-${{github.ref_name}}-ci-build-${{github.run_number}}-${{github.run_attempt}} | sed 's/[^0-9,a-z,A-Z]/\-/g')
+          export tmp_version_message=$(echo \"$tmp_version / triggered by ${{ github.event_name }}\")
+          echo "deploy_version=$tmp_version" >> $GITHUB_OUTPUT
+          echo "deploy_message=$tmp_version_message" >> $GITHUB_OUTPUT
+
+  build:
+    needs: version
+    runs-on: ubuntu-latest
+
+    environment:
+      name: rooampay-production
+
+    env:
+      VENDOR_ENABLED: ROOAMPAY
+      REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
+      REACT_APP_GOOGLE_MERCHANT_ID: ${{ vars.REACT_APP_GOOGLE_MERCHANT_ID }}
+      REACT_APP_GOOGLE_TRACK_ID: ${{ vars.REACT_APP_GOOGLE_TRACK_ID }}
+      REACT_APP_SENTRY_DSN: ${{ vars.REACT_APP_SENTRY_DSN }}
+      REACT_APP_SENTRY_ENVIRONMENT: ${{ vars.REACT_APP_SENTRY_ENVIRONMENT }}
+      REACT_APP_SENTRY_SAMPLERATE: ${{ vars.REACT_APP_SENTRY_SAMPLERATE }}
+      REACT_APP_SENTRY_REPLAYS_SESSION_SAMPLERATE: ${{ vars.REACT_APP_SENTRY_REPLAYS_SESSION_SAMPLERATE }}
+      REACT_APP_SENTRY_REPLAYS_ONERROR_SAMPLERATE: ${{ vars.REACT_APP_SENTRY_REPLAYS_ONERROR_SAMPLERATE}}
+      REACT_APP_PLACE_REDIRECTION_URL: ${{ vars.REACT_APP_PLACE_REDIRECTION_URL }}
+      REACT_APP_PLACE_REDIRECTION_PLACECODES: ${{ vars.REACT_APP_PLACE_REDIRECTION_PLACECODES }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
+      REACT_APP_DISABLE_GOOGLE_PAY: ${{ vars.REACT_APP_DISABLE_GOOGLE_PAY }}
+      REACT_APP_PAYMENTS_DISABLE_EXPRESS_CHECKOUT_AMEX_PWP: ${{ vars.REACT_APP_PAYMENTS_DISABLE_EXPRESS_CHECKOUT_AMEX_PWP }}
+      REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD: ${{ vars.REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD }}
+      REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD_DISABLED_WARNING: ${{ vars.REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD_DISABLED_WARNING }}
+      REACT_APP_ENABLE_VIEW_MENU: ${{ vars.REACT_APP_ENABLE_VIEW_MENU }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: "19.x"
           cache: "npm"
 
-      - name: Install Dependencies
+      - uses: actions/cache@v3
+        id: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci
+        env:
+          CI: ""
 
       - name: Build
-        run: npm run build
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=robarroyo
+        run: npm run build --if-present
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          REACT_APP_SENTRY_VERSION: ${{ needs.version.outputs.deploy_version }}
+          CI: ""
+
+      - name: Archive Build output
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: Build output
+          path: build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: rooampay-production
+
+    env:
+      VENDOR_ENABLED: ROOAMPAY
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+          cache: "npm"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Test
+        run: npm test
+        env:
+          CI: ""
+          JEST_JUNIT_OUTPUT_DIR: "reports"
+          JEST_JUNIT_OUTPUT_NAME: "jest-junit.xml"
+
+      - name: Archive Test Report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: Test report
+          path: reports
+
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Tests Report
+          path: reports/jest-*.xml
+          reporter: jest-junit
+
+  deploy:
+    needs: [version, test]
+    runs-on: ubuntu-latest
+
+    environment:
+      name: rooampay-production
+      url: ${{ steps.deploy.outputs.url }}/37UTRKXHZY
+
+    env:
+      VENDOR_ENABLED: ROOAMPAY
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
+
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: Build output
+          path: build
+
+      - name: Deploy Production
+        id: deploy
+        if: success()
+        run: |
+          npm install wrangler
+          export OUTPUT=$(npx wrangler pages publish build --branch=main --project-name=robarroyo --commit-message=${{ needs.version.outputs.deploy_message }})
+          export URL=$(echo $OUTPUT | grep -Eo 'https://[^ >]+' | head -1)
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+      - name: Upload Sentry Source Maps
+        id: sentry
+        if: success()
+        run: |
+          npm install @sentry/cli
+          npx sentry-cli releases files ${{ needs.version.outputs.deploy_version }} upload-sourcemaps -rewrite ./build --url-prefix '~/static/js'
