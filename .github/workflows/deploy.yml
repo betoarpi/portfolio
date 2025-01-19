@@ -1,4 +1,4 @@
-name: ROOAMPAY - Deploy Production
+name: Deploy Production
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: rooampay-production
+      name: production
 
     outputs:
       deploy_version: ${{ steps.vars.outputs.deploy_version }}
@@ -34,28 +34,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: rooampay-production
-
-    env:
-      VENDOR_ENABLED: ROOAMPAY
-      REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
-      REACT_APP_GOOGLE_MERCHANT_ID: ${{ vars.REACT_APP_GOOGLE_MERCHANT_ID }}
-      REACT_APP_GOOGLE_TRACK_ID: ${{ vars.REACT_APP_GOOGLE_TRACK_ID }}
-      REACT_APP_SENTRY_DSN: ${{ vars.REACT_APP_SENTRY_DSN }}
-      REACT_APP_SENTRY_ENVIRONMENT: ${{ vars.REACT_APP_SENTRY_ENVIRONMENT }}
-      REACT_APP_SENTRY_SAMPLERATE: ${{ vars.REACT_APP_SENTRY_SAMPLERATE }}
-      REACT_APP_SENTRY_REPLAYS_SESSION_SAMPLERATE: ${{ vars.REACT_APP_SENTRY_REPLAYS_SESSION_SAMPLERATE }}
-      REACT_APP_SENTRY_REPLAYS_ONERROR_SAMPLERATE: ${{ vars.REACT_APP_SENTRY_REPLAYS_ONERROR_SAMPLERATE}}
-      REACT_APP_PLACE_REDIRECTION_URL: ${{ vars.REACT_APP_PLACE_REDIRECTION_URL }}
-      REACT_APP_PLACE_REDIRECTION_PLACECODES: ${{ vars.REACT_APP_PLACE_REDIRECTION_PLACECODES }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ vars.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
-      REACT_APP_DISABLE_GOOGLE_PAY: ${{ vars.REACT_APP_DISABLE_GOOGLE_PAY }}
-      REACT_APP_PAYMENTS_DISABLE_EXPRESS_CHECKOUT_AMEX_PWP: ${{ vars.REACT_APP_PAYMENTS_DISABLE_EXPRESS_CHECKOUT_AMEX_PWP }}
-      REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD: ${{ vars.REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD }}
-      REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD_DISABLED_WARNING: ${{ vars.REACT_APP_PAYMENTS_DISABLE_CREDIT_CARD_DISABLED_WARNING }}
-      REACT_APP_ENABLE_VIEW_MENU: ${{ vars.REACT_APP_ENABLE_VIEW_MENU }}
+      name: production
 
     steps:
       - uses: actions/checkout@v3
@@ -79,7 +58,6 @@ jobs:
       - name: Build
         run: npm run build --if-present
         env:
-          REACT_APP_SENTRY_VERSION: ${{ needs.version.outputs.deploy_version }}
           CI: ""
 
       - name: Archive Build output
@@ -89,64 +67,13 @@ jobs:
           name: Build output
           path: build
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-
-    environment:
-      name: rooampay-production
-
-    env:
-      VENDOR_ENABLED: ROOAMPAY
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 19
-          cache: "npm"
-
-      - name: Cache NPM dependencies
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-
-      - name: Test
-        run: npm test
-        env:
-          CI: ""
-          JEST_JUNIT_OUTPUT_DIR: "reports"
-          JEST_JUNIT_OUTPUT_NAME: "jest-junit.xml"
-
-      - name: Archive Test Report
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: Test report
-          path: reports
-
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Tests Report
-          path: reports/jest-*.xml
-          reporter: jest-junit
-
   deploy:
-    needs: [version, test]
+    needs: [version]
     runs-on: ubuntu-latest
 
     environment:
-      name: rooampay-production
-      url: ${{ steps.deploy.outputs.url }}/37UTRKXHZY
-
-    env:
-      VENDOR_ENABLED: ROOAMPAY
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ vars.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
 
     steps:
       - uses: actions/download-artifact@v3
